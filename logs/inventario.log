@@ -1,0 +1,55 @@
+28/07/2026 11:20:33 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando proceso ETL.
+28/07/2026 11:20:33 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Leyendo archivo Excel...
+28/07/2026 11:20:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Archivo leído correctamente.
+28/07/2026 11:20:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Registros filtrados correctamente. Filas: 4934 | Columnas: 30
+28/07/2026 11:20:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Conversión de tipos de datos completada.
+28/07/2026 11:20:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Unidades normalizadas correctamente.
+28/07/2026 11:20:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Maestro de repuestos: 2101 registros.
+28/07/2026 11:20:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Movimientos de inventario: 4934 registros.
+28/07/2026 11:20:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Proceso ETL finalizado correctamente.
+28/07/2026 14:32:32 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+28/07/2026 14:32:32 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se crearon las tablas correctamente
+28/07/2026 14:35:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+28/07/2026 14:35:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+28/07/2026 14:40:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+28/07/2026 14:40:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+28/07/2026 16:09:15 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+28/07/2026 16:09:15 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se crearon las tablas correctamente
+28/07/2026 16:15:01 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando proceso ETL.
+28/07/2026 16:15:01 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Leyendo archivo Excel...
+28/07/2026 16:15:12 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Archivo leído correctamente.
+28/07/2026 16:15:12 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Registros filtrados correctamente. Filas: 4934 | Columnas: 30
+28/07/2026 16:15:12 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Conversión de tipos de datos completada.
+28/07/2026 16:15:12 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Unidades normalizadas correctamente.
+28/07/2026 16:15:12 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Maestro de repuestos: 2101 registros.
+28/07/2026 16:15:12 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Movimientos de inventario: 4934 registros.
+28/07/2026 16:15:12 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Proceso ETL finalizado correctamente.
+28/07/2026 16:15:13 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+28/07/2026 16:15:13 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron: 2101 elementos
+28/07/2026 16:15:13 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron : 4908 elementos 
+28/07/2026 16:35:15 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+28/07/2026 16:35:15 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se crearon las tablas correctamente
+28/07/2026 16:35:48 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando proceso ETL.
+28/07/2026 16:35:48 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Leyendo archivo Excel...
+28/07/2026 16:35:59 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Archivo leído correctamente.
+28/07/2026 16:35:59 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Registros filtrados correctamente. Filas: 4934 | Columnas: 30
+28/07/2026 16:35:59 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Conversión de tipos de datos completada.
+28/07/2026 16:35:59 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Unidades normalizadas correctamente.
+28/07/2026 16:35:59 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Maestro de repuestos: 2101 registros.
+28/07/2026 16:35:59 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Movimientos de inventario: 4934 registros.
+28/07/2026 16:35:59 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Proceso ETL finalizado correctamente.
+28/07/2026 16:36:00 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+28/07/2026 16:36:00 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron: 2101 elementos
+28/07/2026 16:36:00 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron : 4908 elementos 
+28/07/2026 16:39:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando proceso ETL.
+28/07/2026 16:39:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Leyendo archivo Excel...
+28/07/2026 16:39:48 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Archivo leído correctamente.
+28/07/2026 16:39:48 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Registros filtrados correctamente. Filas: 4934 | Columnas: 30
+28/07/2026 16:39:48 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Conversión de tipos de datos completada.
+28/07/2026 16:39:48 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Unidades normalizadas correctamente.
+28/07/2026 16:39:48 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Maestro de repuestos: 2101 registros.
+28/07/2026 16:39:48 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Movimientos de inventario: 4934 registros.
+28/07/2026 16:39:48 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Proceso ETL finalizado correctamente.
+28/07/2026 16:39:48 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+28/07/2026 16:39:49 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron: 0 elementos
+28/07/2026 16:39:49 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron : 0 elementos 
