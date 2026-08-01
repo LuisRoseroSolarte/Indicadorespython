@@ -64,3 +64,16 @@ ABC_PERCENTAGES = ...
 TOP_ITEMS = ...
 OBSOLESCENCE_MONTHS = ...
 FORECAST_PERIODS = ...
+
+# ==========================================================
+# PARÁMETROS DE INVENTARIO
+# ==========================================================
+STOCK_MINIMO_POR_DEFECTO =12
+# Valor por defecto del stock mínimo para nuevos repuestos
+DIAS_COBERTURA = 15  # días de consumo que el stock mínimo debe cubrir
+
+FACTOR_STOCK_MAXIMO =3
+MINIMO_PUNTOS_TENDENCIA = 4  # mínimo de observaciones distintas para calcular una tendencia confiable
+MINIMO_MESES_PRONOSTICO = 3  # mínimo de meses con historial para proyectar consumo del siguiente mes
+DIAS_MES_APROX = 30  # días usados para convertir el pronóstico mensual (KPI 8) a consumo diario
+UMBRAL_NIP_CERO = 5  # unidades; rango alrededor de 0 considerado "inventario justo"

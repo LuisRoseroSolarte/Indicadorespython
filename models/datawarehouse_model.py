@@ -8,6 +8,7 @@ Autor        : Luis Alfonso Rosero
 Arquitectura : MVC
 ------------------------------------------------------------
 """
+import pandas as pd
 import sqlite3
 from utils.logger import logger
 from database.connection import ConexionBaseDatos
@@ -124,11 +125,11 @@ class DataWarehouseModel:
         logger.info("Construyendo DIM_TIEMPO")
         
         query="""
-              INSERT INTO DIM_TIEMPO(FECHA,DIA,MES,ANIO)
+              INSERT INTO DIM_TIEMPO(FECHA,DIA,MES,ANO)
               SELECT DISTINCT FECHA,
-              CAST(strftime(%d,FECHA) AS INTEGER ) AS DIA
-              CAST(strftime(%m,FECHA) AS INTEGER ) AS MES
-              CAST(strftime(%Y,FECHA) AS INTEGER ) AS ANIO
+                    CAST(strftime('%d',FECHA) AS INTEGER ) AS DIA,
+                    CAST(strftime('%m',FECHA) AS INTEGER ) AS MES,
+                    CAST(strftime('%Y',FECHA) AS INTEGER ) AS ANO
               FROM MOVIMIENTOS_INVENTARIO
               WHERE FECHA IS NOT NULL
               ORDER BY FECHA
@@ -136,9 +137,50 @@ class DataWarehouseModel:
         self.cursor.execute(query)
         logger.info("fecha cargada correctamente n DIM_TIEMPO")
         
-
     def _cargar_fact_movimientos(self):
-        self.cursor.execute()
+        """
+    Construye la tabla de hechos FACT_MOVIMIENTOS a partir
+    de la tabla MOVIMIENTOS_INVENTARIO, consolidando en una
+    sola fila por ELEM + FECHA cuando hay varios movimientos
+    el mismo día.
+    """
+        logger.info("construyendo FACT_MOVIMIENTOS....")
+
+        query = """
+            INSERT OR IGNORE INTO FACT_MOVIMIENTOS (ELEM, FECHA, UNITARIO, ENTRADAS, SALIDAS, ACUM_CANTIDAD, ACUM_VALOR)
+            SELECT
+                agregados.ELEM,
+                agregados.FECHA,
+                ultimo.UNITARIO,
+                agregados.TOTAL_ENTRADAS,
+                agregados.TOTAL_SALIDAS,
+                ultimo.ACUM_CANTIDAD,
+                ultimo.ACUM_VALOR
+            FROM (
+                SELECT ELEM, FECHA,
+                        SUM(ENTRADAS) AS TOTAL_ENTRADAS,
+                        SUM(SALIDAS)  AS TOTAL_SALIDAS
+                FROM MOVIMIENTOS_INVENTARIO
+                GROUP BY ELEM, FECHA
+            ) AS agregados
+            JOIN (
+                SELECT ELEM, FECHA, UNITARIO, ACUM_CANTIDAD, ACUM_VALOR
+                FROM (
+                    SELECT ELEM, FECHA, UNITARIO, ACUM_CANTIDAD, ACUM_VALOR,
+                            ROW_NUMBER() OVER (PARTITION BY ELEM, FECHA ORDER BY ID DESC) AS rn
+                    FROM MOVIMIENTOS_INVENTARIO
+                )
+                WHERE rn = 1
+            ) AS ultimo
+            ON agregados.ELEM = ultimo.ELEM AND agregados.FECHA = ultimo.FECHA
+            ORDER BY agregados.FECHA, agregados.ELEM
+            """
+        self.cursor.execute(query)
+        logger.info(
+            f"FACT_MOVIMIENTOS cargado correctamente. "
+            f"Registros insertados: {self.cursor.rowcount}"
+    )
+        
 
     def _reiniciar_autoincremento(self):
         """
@@ -155,6 +197,61 @@ class DataWarehouseModel:
                             DELETE FROM sqlite_sequence WHERE name ='FACT_MOVIMIENTOS'
                             """)
         logger.info("Autoincrement reiniciado correctamente")
+        
+    def _obtener_dim_producto(self):
+        try:
+            self.cursor.execute("SELECT * FROM DIM_PRODUCTO")
+            filas = self.cursor.fetchall()   # lista de tuplas
+            columnas = [desc[0] for desc in self.cursor.description]  # nombres de columnas
+
+            # Convertir a DataFrame
+            df = pd.DataFrame(filas, columns=columnas)
+
+            return df
+
+        except sqlite3.Error as error:
+            logger.error(f"error al consultar movimientos: {error}")
+            raise
+
+
+    def _obtener_dim_tiempo(self):
+            try:
+                self.cursor.execute("SELECT * FROM DIM_TIEMPO")
+                filas = self.cursor.fetchall()   # lista de tuplas
+                columnas = [desc[0] for desc in self.cursor.description]  # nombres de columnas
+    
+                # Convertir a DataFrame
+                df = pd.DataFrame(filas, columns=columnas)
+    
+                return df
+    
+            except sqlite3.Error as error:
+                logger.error(f"error al consultar movimientos: {error}")
+                raise
+            
+            
+    
+    def _obtener_fact_movimientos(self):
+            try:
+                self.cursor.execute("SELECT * FROM FACT_MOVIMIENTOS")
+                filas = self.cursor.fetchall()   # lista de tuplas
+                columnas = [desc[0] for desc in self.cursor.description]  # nombres de columnas
+    
+                # Convertir a DataFrame
+                df = pd.DataFrame(filas, columns=columnas)
+    
+                return df
+    
+            except sqlite3.Error as error:
+                logger.error(f"error al consultar movimientos: {error}")
+                raise
+    
+    
+
+
 
     def cerrar(self):
-        self.cursor.execute()
+         """
+         Cierra la conexión con la base de datos.
+         """
+         self.bd.cerrar()

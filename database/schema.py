@@ -31,6 +31,9 @@ class EsquemaBaseDatos:
         try:
             self._crear_tabla_maestro_repuestos()
             self._crear_tabla_movimientos_inventarios()
+            self._crear_dim_producto()
+            self._crear_dim_tiempo()
+            self._crear_fact_movimientos()
             self.conexion.commit()
             self.conexion.close()
             logger.info("se crearon las tablas correctamente")
@@ -105,8 +108,7 @@ class EsquemaBaseDatos:
         self.cursor.execute("""
             CREATE TABLE DIM_TIEMPO (
             FECHA DATE PRIMARY KEY,
-            DIA INT NOT NULL,
-            SEMANA INT NOT NULL,
+            DIA INT NOT NULL, 
             MES INT NOT NULL,
             ANO INT NOT NULL
             )
@@ -137,5 +139,4 @@ class EsquemaBaseDatos:
 
         logger.info("Tabla 'fact_movimientos' verificada.")
         
-    
     

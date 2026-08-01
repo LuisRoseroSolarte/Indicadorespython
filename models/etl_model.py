@@ -14,6 +14,7 @@ Arquitectura : MVC
 import pandas as pd
 import numpy as np
 
+
 from config import RUTA_ARCHIVO_EXCEL
 from utils.logger import logger
 
@@ -276,8 +277,11 @@ class ETLModel:
             datos["UNIDAD"]
             .astype("string")
             .str.strip()
+            .replace("","UNID") #CADENAS VACIAS 
+            .fillna("UNID") # VALORES NULOS
         )
-
+        
+        
         # =====================================
         # COLUMNAS NUMÉRICAS
         # =====================================
@@ -472,3 +476,4 @@ class ETLModel:
         }
 
         return resumen
+    
