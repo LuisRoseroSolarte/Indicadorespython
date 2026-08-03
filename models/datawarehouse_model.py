@@ -247,8 +247,49 @@ class DataWarehouseModel:
                 raise
     
     
+    
+    # =====================================================
+    # ACTUALIZAR STOCK MÍNIMO
+    # =====================================================
 
+    def actualizar_stock_minimo(self, elem, nuevo_stock):
+        """
+        Actualiza el stock mínimo del repuesto
+        en la tabla DIM_PRODUCTO.
+        """
 
+        try:
+
+            sql = """
+            UPDATE DIM_PRODUCTO
+            SET STOCK_MINIMO = ?
+            WHERE ELEM = ?
+            """
+
+            self.cursor.execute(
+                sql,
+                (
+                    nuevo_stock,
+                    elem
+                )
+            )
+
+            self.conexion.commit()
+
+            logger.info(
+                f"Stock mínimo actualizado correctamente. "
+                f"ELEM={elem} | STOCK_MINIMO={nuevo_stock}"
+            )
+
+        except Exception as error:
+
+            self.conexion.rollback()
+
+            logger.error(
+                f"Error actualizando STOCK_MINIMO: {error}"
+            )
+
+            raise
 
     def cerrar(self):
          """

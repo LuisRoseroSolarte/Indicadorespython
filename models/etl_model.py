@@ -15,7 +15,7 @@ import pandas as pd
 import numpy as np
 
 
-from config import RUTA_ARCHIVO_EXCEL
+#from config import RUTA_ARCHIVO_EXCEL
 from utils.logger import logger
 
 
@@ -26,9 +26,19 @@ class ETLModel:
 
     def __init__(self):
 
-        self.ruta_archivo = RUTA_ARCHIVO_EXCEL
+        self.ruta_archivo =None #RUTA_ARCHIVO_EXCEL
 
+    
+    #*******************************************************
+    def establecer_ruta_archivo(self, ruta_archivo):
+        """
+    Guarda la ruta del archivo Excel seleccionada
+    por el usuario.
+    """
 
+        self.ruta_archivo = ruta_archivo
+    
+    
     # ==========================================================
     # MÉTODO PRINCIPAL
     # ==========================================================
@@ -222,7 +232,7 @@ class ETLModel:
         return datos
     
     
-        # ==========================================================
+    # ==========================================================
     # CONVERSIÓN DE TIPOS DE DATOS
     # ==========================================================
 

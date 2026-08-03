@@ -82,7 +82,7 @@ class InventarioModel:
                
                
     # ==========================================================
-    # MOVIMIENTOS DE INVENTARIO
+    # INSERTAR MOVIMIENTOS DE INVENTARIO
     # ==========================================================
     def insertar_movimientos(self,datos):
         try:

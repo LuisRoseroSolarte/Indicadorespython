@@ -139,6 +139,33 @@ class AnalyticsModels:
         )
 
         return float(valorizacion_total)
+    #*******************************************************************************************
+    def calcular_distribucion_abc(self):
+        """
+        Calcula la distribución ABC en porcentaje del valor total.
+
+        Retorna
+        -------
+        dict
+            {"A": porcentaje, "B": porcentaje, "C": porcentaje}
+        """
+
+        # 1. Obtener DataFrame con clasificación ABC
+        df_abc = self.calcular_clasificacion_abc()
+
+        # 2. Obtener valorización total
+        total_valor = self.calcular_valorizacion_total_inventario()
+
+        # 3. Agrupar por categoría y sumar
+        resumen = df_abc.groupby("CATEGORIA")["ACUM_VALOR"].sum()
+
+        # 4. Convertir a porcentajes
+        distribucion = {
+            categoria: (valor / total_valor) * 100
+            for categoria, valor in resumen.items()
+        }
+
+        return distribucion
     
     # ==========================================================
     # KPI 3 - ALERTAS DE STOCK
@@ -377,20 +404,122 @@ class AnalyticsModels:
 
         detalle = pd.DataFrame(resultados)
 
-        # Agregar nombre del producto
-        nombres = self.dim_producto[["ELEM", "NOMBRE_ELEMENTO"]].copy()
-        detalle = detalle.merge(nombres, on="ELEM", how="left")
+        # # Agregar nombre del producto
+        # nombres = self.dim_producto[["ELEM", "NOMBRE_ELEMENTO"]].copy()
+        # detalle = detalle.merge(nombres, on="ELEM", how="left")
 
-        detalle = detalle[[
-            "ELEM", "NOMBRE_ELEMENTO", "unitario_actual",
-            "unitario_proyectado", "cantidad_a_reponer", "costo_proyectado"
-        ]].reset_index(drop=True)
+        # detalle = detalle[[
+        #     "ELEM", "NOMBRE_ELEMENTO", "unitario_actual",
+        #     "unitario_proyectado", "cantidad_a_reponer", "costo_proyectado"
+        # ]].reset_index(drop=True)
+
+        # # =====================================================
+        # # SUMA SOBRE TODOS LOS REPUESTOS (Cproy)
+        # # =====================================================
+        # costo_total_proyectado = detalle["costo_proyectado"].sum()
+        # costo_total_proyectado =f"{costo_total_proyectado:,.2f}"
+
+        # logger.info(
+        #     f"KPI 5 calculado correctamente. "
+        #     f"Costo total proyectado: {costo_total_proyectado}"
+        # )
+
+        # return {
+        #     "costo_total_proyectado": costo_total_proyectado,
+        #     "detalle": detalle
+        # }
+                
+         # =====================================================
+        # AGREGAR NOMBRE DEL PRODUCTO
+        # =====================================================
+
+        nombres = self.dim_producto[
+            ["ELEM", "NOMBRE_ELEMENTO"]
+        ].copy()
+
+        detalle = detalle.merge(
+            nombres,
+            on="ELEM",
+            how="left"
+        )
 
         # =====================================================
-        # SUMA SOBRE TODOS LOS REPUESTOS (Cproy)
+        # AGREGAR CATEGORÍA ABC
         # =====================================================
+
+        clasificacion = self.estado_actual_inventario[
+            ["ELEM", "CATEGORIA"]
+        ].copy()
+
+        detalle = detalle.merge(
+            clasificacion,
+            on="ELEM",
+            how="left"
+        )
+
+        # =====================================================
+        # COSTO ACTUAL POR PRODUCTO
+        # =====================================================
+
+        detalle["costo_actual"] = (
+            detalle["unitario_actual"] *
+            detalle["cantidad_a_reponer"]
+        )
+
+        # =====================================================
+        # ORGANIZAR COLUMNAS
+        # =====================================================
+
+        detalle = detalle[
+            [
+                "ELEM",
+                "NOMBRE_ELEMENTO",
+                "CATEGORIA",
+                "unitario_actual",
+                "unitario_proyectado",
+                "cantidad_a_reponer",
+                "costo_actual",
+                "costo_proyectado"
+            ]
+        ].reset_index(drop=True)
+
+        # =====================================================
+        # DATOS PARA LA GRÁFICA
+        # =====================================================
+
+        grafica = (
+            detalle
+            .groupby("CATEGORIA", as_index=False)
+            .agg(
+                costo_actual=("costo_actual", "sum"),
+                costo_proyectado=("costo_proyectado", "sum")
+            )
+        )
+
+        # Orden A, B, C
+
+        orden = {
+            "A": 1,
+            "B": 2,
+            "C": 3
+        }
+
+        grafica["ORDEN"] = grafica["CATEGORIA"].map(orden)
+
+        grafica = (
+            grafica
+            .sort_values("ORDEN")
+            .drop(columns="ORDEN")
+            .reset_index(drop=True)
+        )
+
+        # =====================================================
+        # SUMA TOTAL
+        # =====================================================
+
         costo_total_proyectado = detalle["costo_proyectado"].sum()
-        costo_total_proyectado =f"{costo_total_proyectado:,.2f}"
+
+        costo_total_proyectado = f"{costo_total_proyectado:,.2f}"
 
         logger.info(
             f"KPI 5 calculado correctamente. "
@@ -399,9 +528,9 @@ class AnalyticsModels:
 
         return {
             "costo_total_proyectado": costo_total_proyectado,
-            "detalle": detalle
-        }
-                
+            "detalle": detalle,
+            "grafica": grafica
+        }       
     # =====================================================            
     #KPI 6: Indicador de Obsolescencia Predictivo diccionario
     # =====================================================     
@@ -503,23 +632,96 @@ class AnalyticsModels:
                 f"se evaluaron con el criterio de categoría C."
             )
 
-        detalle = datos[[
-            "ELEM", "NOMBRE_ELEMENTO", "CATEGORIA",
-            "meses_sin_movimiento", "probabilidad_obsolescencia"
-        ]].sort_values("meses_sin_movimiento", ascending=False).reset_index(drop=True)
+        # detalle = datos[[
+        #     "ELEM", "NOMBRE_ELEMENTO", "CATEGORIA",
+        #     "meses_sin_movimiento", "probabilidad_obsolescencia"
+        # ]].sort_values("meses_sin_movimiento", ascending=False).reset_index(drop=True)
 
-        cantidad_alta_probabilidad = (detalle["probabilidad_obsolescencia"] == "Alta").sum()
+        # cantidad_alta_probabilidad = (detalle["probabilidad_obsolescencia"] == "Alta").sum()
+
+        # logger.info(
+        #     f"KPI 6 calculado correctamente. "
+        #     f"Repuestos con alta probabilidad de obsolescencia: {cantidad_alta_probabilidad}"
+        # )
+
+        # return {
+        #     "cantidad_alta_probabilidad": int(cantidad_alta_probabilidad),
+        #     "detalle": detalle
+        # }
+        # =====================================================
+        # ORGANIZAR DETALLE
+        # =====================================================
+
+        detalle = datos[
+            [
+                "ELEM",
+                "NOMBRE_ELEMENTO",
+                "CATEGORIA",
+                "meses_sin_movimiento",
+                "probabilidad_obsolescencia"
+            ]
+        ].sort_values(
+            "meses_sin_movimiento",
+            ascending=False
+        ).reset_index(drop=True)
+
+        # =====================================================
+        # REPUESTOS CON ALTA PROBABILIDAD
+        # =====================================================
+
+        detalle_alta = detalle[
+            detalle["probabilidad_obsolescencia"] == "Alta"
+        ].copy()
+
+        cantidad_alta_probabilidad = len(detalle_alta)
+
+        # =====================================================
+        # PORCENTAJE DEL INVENTARIO
+        # =====================================================
+
+        total_repuestos = len(detalle)
+
+        porcentaje_alta_probabilidad = (
+            cantidad_alta_probabilidad / total_repuestos * 100
+            if total_repuestos > 0 else 0
+        )
+
+        # =====================================================
+        # DATOS PARA LA TARJETA (ABC)
+        # =====================================================
+
+        abc = (
+            detalle_alta
+            .groupby("CATEGORIA")
+            .size()
+            .reindex(["A", "B", "C"], fill_value=0)
+        )
+
+        grafica = {
+            "A": int(abc["A"]),
+            "B": int(abc["B"]),
+            "C": int(abc["C"])
+        }
 
         logger.info(
             f"KPI 6 calculado correctamente. "
-            f"Repuestos con alta probabilidad de obsolescencia: {cantidad_alta_probabilidad}"
+            f"Alta probabilidad: {cantidad_alta_probabilidad}"
         )
 
         return {
+
             "cantidad_alta_probabilidad": int(cantidad_alta_probabilidad),
+
+            "porcentaje": round(
+                porcentaje_alta_probabilidad,
+                2
+            ),
+
+            "grafica": grafica,
+
             "detalle": detalle
+
         }
-        
     
     #==========================================================0
     #KPI 7: Tendencia del Consumo-diccionario
@@ -734,7 +936,7 @@ class AnalyticsModels:
     #=====================================================0    
     #KPI 9: Pronóstico de Agotamiento del Inventario -diccionario
     #======================================================
-    def calcular_pronostico_agotamiento(self, umbral_critico_dias=30):
+    def calcular_pronostico_agotamiento(self, umbral_critico_dias=30,pronostico_previo=None):
         """
         Estima los días que le quedan a cada repuesto antes de agotar
         su inventario, con base en el stock actual y el consumo diario
@@ -760,7 +962,17 @@ class AnalyticsModels:
         """
 
         logger.info("Calculando KPI 9 - Pronóstico de agotamiento del inventario...")
+        
+        # =====================================================
+        # REUTILIZAR EL PRONÓSTICO MENSUAL YA CALCULADO (KPI 8)
+        # Si no se pasa uno ya calculado, se calcula aquí.
+        # =====================================================
+        resultado_kpi8 = pronostico_previo if pronostico_previo is not None else self.calcular_pronostico_consumo_mensual()
 
+        pronostico = resultado_kpi8["detalle"][
+            ["ELEM", "pronostico_proximo_mes"]
+        ].copy()
+        
         # =====================================================
         # REUTILIZAR EL PRONÓSTICO MENSUAL YA CALCULADO (KPI 8)
         # =====================================================
@@ -830,7 +1042,7 @@ class AnalyticsModels:
     #=======================================    
     #KPI 10: Nivel de Inventario Proyectado-dicionario
     #=========================================
-    def calcular_nivel_inventario_proyectado(self):
+    def calcular_nivel_inventario_proyectado(self,pronostico_previo=None):
         """
         Estima el nivel de inventario que tendrá cada repuesto al
         finalizar el siguiente período, considerando el stock actual
@@ -857,6 +1069,13 @@ class AnalyticsModels:
         """
 
         logger.info("Calculando KPI 10 - Nivel de inventario proyectado...")
+        
+        resultado_kpi8 = pronostico_previo if pronostico_previo is not None else self.calcular_pronostico_consumo_mensual()
+
+        pronostico = resultado_kpi8["detalle"][
+            ["ELEM", "pronostico_proximo_mes"]
+        ].copy()
+
 
         # =====================================================
         # REUTILIZAR EL PRONÓSTICO MENSUAL YA CALCULADO (KPI 8)
@@ -925,4 +1144,8 @@ class AnalyticsModels:
             "cantidad_riesgo_desabastecimiento": int(cantidad_riesgo),
             "detalle": detalle
         }
+        
+        
+
+#**********************************************************************
             

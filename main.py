@@ -34,29 +34,86 @@
 # print(df_stock_minimo.tail(345))
 
 
-from models.datawarehouse_model import DataWarehouseModel
-from models.analytics_model import AnalyticsModels
+# from models.datawarehouse_model import DataWarehouseModel
+# from models.analytics_model import AnalyticsModels
 
-dataware =DataWarehouseModel()
+# dataware =DataWarehouseModel()
 
 
-fecha = dataware._obtener_dim_tiempo()
-dataware.actualizar_datawarehouse()
-producto = dataware._obtener_dim_producto()
-movimiento =dataware._obtener_fact_movimientos()
+# fecha = dataware._obtener_dim_tiempo()
+# dataware.actualizar_datawarehouse()
+# producto = dataware._obtener_dim_producto()
+# movimiento =dataware._obtener_fact_movimientos()
 
-analisis = AnalyticsModels(producto,fecha,movimiento)
-#calcularValor =analisis.calcular_valorizacion_total_inventario()
-#clacificacionabc =analisis.calcular_clasificacion_abc()
-#clacificacioABC=clacificacionabc[["ELEM","NOMBRE_ELEMENTO","CATEGORIA","ACUM_CANTIDAD"]]
-#alertas =analisis.calcular_alertas_stock()
-#top10 = analisis.calcular_top10_menor_cobertura()
-#calcular_costo_proyectado_reposicion=analisis.calcular_costo_proyectado_reposicion()
-#calcular_indicador_obsolescencia =analisis.calcular_indicador_obsolescencia()
-# calcular_tendencia_de_consumo =analisis.calcular_tendencia_consumo()
-# calcular_pronostico_consumo_mensual=analisis.calcular_pronostico_consumo_mensual()
-#calcular_pronostico_agotamiento= analisis.calcular_pronostico_agotamiento()
-calcular_nivel_inventario_proyectado= analisis.calcular_nivel_inventario_proyectado()
+# analisis = AnalyticsModels(producto,fecha,movimiento)
+# #calcularValor =analisis.calcular_valorizacion_total_inventario()
+# #clacificacionabc =analisis.calcular_clasificacion_abc()
+# #clacificacioABC=clacificacionabc[["ELEM","NOMBRE_ELEMENTO","CATEGORIA","ACUM_CANTIDAD"]]
+# #alertas =analisis.calcular_alertas_stock()
+# #top10 = analisis.calcular_top10_menor_cobertura()
+# #calcular_costo_proyectado_reposicion=analisis.calcular_costo_proyectado_reposicion()
+# #calcular_indicador_obsolescencia =analisis.calcular_indicador_obsolescencia()
+# # calcular_tendencia_de_consumo =analisis.calcular_tendencia_consumo()
+# # calcular_pronostico_consumo_mensual=analisis.calcular_pronostico_consumo_mensual()
+# #calcular_pronostico_agotamiento= analisis.calcular_pronostico_agotamiento()
+# calcular_nivel_inventario_proyectado= analisis.calcular_nivel_inventario_proyectado()
 
-print(calcular_nivel_inventario_proyectado)
+# print(calcular_nivel_inventario_proyectado)
+
+import customtkinter as ctk
+
+from controllers.app_controller import AppController
+from views.main_window import MainView
+
+
+def main():
+    """
+    Punto de entrada de la aplicación.
+    """
+
+    # ============================================
+    # CONFIGURACIÓN DE CUSTOMTKINTER
+    # ============================================
+
+    ctk.set_appearance_mode("light")
+    ctk.set_default_color_theme("blue")
+
+    # ============================================
+    # CREAR VENTANA PRINCIPAL
+    # ============================================
+
+    root = ctk.CTk()
+
+    # ============================================
+    # CREAR CONTROLADOR PRINCIPAL
+    # ============================================
+
+    controlador = AppController()
+    
+    # ============================================
+    # EJECUTAR FLUJO DE CARGA Y KPIs
+    # ============================================
+    # controlador.cargar_excel()
+    # controlador.actualizar_datawarehouse()
+    # controlador.cargar_datawarehouse()
+    # controlador.calcular_kpis()
+
+    # ============================================
+    # CREAR VISTA PRINCIPAL
+    # ============================================
+
+    MainView(
+        root=root,
+        controlador=controlador
+    )
+
+    # ============================================
+    # INICIAR APLICACIÓN
+    # ============================================
+
+    root.mainloop()
+
+
+if __name__ == "__main__":
+    main()
 
