@@ -136,7 +136,7 @@ class InventoryView(ctk.CTkFrame):
         self.kpi_stock_bajo = KPICard(
             parent=self.frame_metricas,
             titulo="REPUESTOS BAJO STOCK",
-            valor=f"{sobre}",
+            valor=f"{bajo}",
             descripcion="requieren pedido"
         )
         self.kpi_stock_bajo.pack(
@@ -462,32 +462,49 @@ class InventoryView(ctk.CTkFrame):
         )
 
         self.frame_botones.pack(
-            fill="x",
-            padx=15
+            # fill="x",
+            # padx=15
+            pady=(10,15)
         )
+        
+        # =====================================================
+        # BOTÓN ACTUALIZAR
+        # =====================================================
 
         self.btn_actualizar = ctk.CTkButton(
-        self.frame_configuracion,
+        #self.frame_configuracion,
+        self.frame_botones,
         text="ACTUALIZAR",
+        width=140,
         command=self.actualizar_stock_minimo
          )
-
+        
         self.btn_actualizar.pack(
             side="left",
-            expand=True,
-            padx=(0, 5)
+            #expand=True,
+            padx=10#(0, 5)
         )
+        
+        # =====================================================
+        # BOTÓN CANCELAR
+        # =====================================================
 
         self.btn_cancelar = ctk.CTkButton(
             self.frame_botones,
-            text="CANCELAR"
-        )
+            text="CANCELAR",
+            width=140,
+            fg_color="#7A7A7A",
+            hover_color="#5F5F5F",
+            command=self.limpiar_formulario
+            )
 
         self.btn_cancelar.pack(
             side="left",
-            expand=True,
-            padx=(5, 0)
+            #expand=True,
+            #padx=(5, 0)
+            padx=10
         )
+        
         
         
     def buscar_repuesto(self, event=None):
@@ -663,4 +680,14 @@ class InventoryView(ctk.CTkFrame):
         self.lista_repuestos = self.controlador.obtener_lista_repuestos()
 
         # Ocultar popup si está abierto
+        self.ocultar_popup()
+        
+        
+    def limpiar_formulario(self):
+    
+        self.entry_buscar.delete(0, "end")
+        self.entry_stock.delete(0, "end")
+
+        self.elem_seleccionado = None
+
         self.ocultar_popup()

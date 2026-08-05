@@ -63,7 +63,7 @@ class AnalyticsModels:
     
     
     # ==========================================================
-    #  KPI 1 - CLASIFICACIÓN ABC POR VALOR DEL INVENTARIO
+    #  KPI 1 - ordena lor repuestopor categoria  y retorna  ABC POR VALOR DEL INVENTARIO
     # ==========================================================
 
     def calcular_clasificacion_abc(self):
@@ -195,11 +195,20 @@ class AnalyticsModels:
         # ======================================================
         # CALCULAR ALERTAS DE STOCK BAJO
         # ======================================================
+        print("PRUEBA ACTUALIZACION STOCK MINIMO")
+        
+        # print(
+        #             datos.loc[
+        #                 datos["ELEM"] == 40003,
+        #                 ["ELEM", "ACUM_CANTIDAD", "STOCK_MINIMO"]
+        #             ]
+        #         )
 
         total_stock_bajo = (
             datos["ACUM_CANTIDAD"] < datos["STOCK_MINIMO"]
         ).sum()
-
+        
+        
         # ======================================================
         # CALCULAR ALERTAS DE SOBRESTOCK
         # ======================================================
@@ -275,12 +284,20 @@ class AnalyticsModels:
         # =====================================================
         # OBTENER STOCK ACTUAL (último ACUM_CANTIDAD de cada producto)
         # =====================================================
+        # ultimo_movimiento = (
+        #     movimientos.sort_values("FECHA")
+        #     .groupby("ELEM")
+        #     .tail(1)[["ELEM", "ACUM_CANTIDAD"]]
+        #     .rename(columns={"ACUM_CANTIDAD": "stock_actual"})
+        # )
+
         ultimo_movimiento = (
-            movimientos.sort_values("FECHA")
+            movimientos.reset_index()
+            .sort_values(["FECHA", "index"])
             .groupby("ELEM")
             .tail(1)[["ELEM", "ACUM_CANTIDAD"]]
             .rename(columns={"ACUM_CANTIDAD": "stock_actual"})
-        )
+            )
 
         resumen = resumen.merge(ultimo_movimiento, on="ELEM", how="inner")
 
@@ -601,9 +618,9 @@ class AnalyticsModels:
             categoria = fila["CATEGORIA"]
 
             if categoria == "A":
-                umbral_alta = 12
+                umbral_alta = 3#12
             elif categoria == "B":
-                umbral_alta = 6
+                umbral_alta =2# 6
             else:
                 # Categoría C, o cualquier valor no reconocido
                 # (ej. "SIN CATEGORIA"), se trata con el criterio
@@ -976,10 +993,10 @@ class AnalyticsModels:
         # =====================================================
         # REUTILIZAR EL PRONÓSTICO MENSUAL YA CALCULADO (KPI 8)
         # =====================================================
-        resultado_kpi8 = self.calcular_pronostico_consumo_mensual()
-        pronostico = resultado_kpi8["detalle"][
-            ["ELEM", "pronostico_proximo_mes"]
-        ].copy()
+        # resultado_kpi8 = self.calcular_pronostico_consumo_mensual()
+        # pronostico = resultado_kpi8["detalle"][
+        #     ["ELEM", "pronostico_proximo_mes"]
+        # ].copy()
 
         # =====================================================
         # OBTENER STOCK ACTUAL (último ACUM_CANTIDAD por producto)
@@ -1080,7 +1097,7 @@ class AnalyticsModels:
         # =====================================================
         # REUTILIZAR EL PRONÓSTICO MENSUAL YA CALCULADO (KPI 8)
         # =====================================================
-        resultado_kpi8 = self.calcular_pronostico_consumo_mensual()
+        #resultado_kpi8 = self.calcular_pronostico_consumo_mensual()
         pronostico = resultado_kpi8["detalle"][
             ["ELEM", "pronostico_proximo_mes"]
         ].copy()

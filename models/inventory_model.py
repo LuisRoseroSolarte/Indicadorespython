@@ -31,6 +31,12 @@ class InventarioModel:
         
     def insertar_maestro_repuestos(self,datos):
         try:
+            
+            # Borrar los datos previos de MOVIMIENTOS_INVENTARIO
+            self.cursor.execute("DELETE FROM MAESTRO_REPUESTOS")
+            
+            self.cursor.execute("DELETE FROM MOVIMIENTOS_INVENTARIO")
+            
             self.cursor.executemany("""
                                 INSERT OR IGNORE INTO MAESTRO_REPUESTOS(
                                 ELEM,
@@ -86,6 +92,11 @@ class InventarioModel:
     # ==========================================================
     def insertar_movimientos(self,datos):
         try:
+            # 2. Resetear el contador de autoincremento
+            self.cursor.execute(
+                "DELETE FROM sqlite_sequence WHERE name = 'MOVIMIENTOS_INVENTARIO'"
+            )
+            
             self.cursor.executemany("""
                                     INSERT OR IGNORE INTO MOVIMIENTOS_INVENTARIO(
                                     ELEM,

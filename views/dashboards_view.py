@@ -39,7 +39,7 @@ class DashboardView(ctk.CTkFrame):
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
 
-        self.grid_rowconfigure(1, weight=1)
+        self.grid_rowconfigure(1, weight=2)
         self.grid_rowconfigure(2, weight=1)
 
         # =====================================================
@@ -153,6 +153,7 @@ class DashboardView(ctk.CTkFrame):
             padx=(25,10),
             pady=(0,20),
             sticky="nsew"
+            
         )
 
         ctk.CTkLabel(
@@ -220,7 +221,9 @@ class DashboardView(ctk.CTkFrame):
 
                 datos.append([
                     fila["ELEM"],
-                    fila["NOMBRE_ELEMENTO"],
+                    #limitar caracteres
+                    #fila["NOMBRE_ELEMENTO"],
+                    fila["NOMBRE_ELEMENTO"][:15] + "..." if len(fila["NOMBRE_ELEMENTO"]) > 15 else fila["NOMBRE_ELEMENTO"], 
                     int(fila["stock_actual"]),
                     int(round(fila["consumo_diario_promedio"])),
                     round(fila["dias_cobertura"], 1)
@@ -263,7 +266,7 @@ class DashboardView(ctk.CTkFrame):
         #==========================================
 
         figura = plt.Figure(
-            figsize=(5.5,3.8),
+            figsize=(4,3.8),#cambiar dimensiones de la tabla (ancho, alto) 5.5
             dpi=100
         )
 
@@ -301,7 +304,7 @@ class DashboardView(ctk.CTkFrame):
 
         ax.set_ylabel("Costo")
 
-        ax.set_xlabel("Categoría ABC")
+        #ax.set_xlabel("Categoría ABC")
 
         ax.set_title(
             "Costo Actual vs Proyectado"
@@ -346,12 +349,25 @@ class DashboardView(ctk.CTkFrame):
 
         datos = self.controlador.kpi6_obsolescencia
 
-        cantidad = datos["cantidad_alta_probabilidad"]
-        porcentaje = datos["porcentaje"]
+        # cantidad = datos["cantidad_alta_probabilidad"]
+        # porcentaje = datos["porcentaje"]
 
-        categoria_a = datos["grafica"]["A"]
-        categoria_b = datos["grafica"]["B"]
-        categoria_c = datos["grafica"]["C"]
+        # categoria_a = datos["grafica"]["A"]
+        # categoria_b = datos["grafica"]["B"]
+        # categoria_c = datos["grafica"]["C"]
+        
+        cantidad = datos.get("cantidad_alta_probabilidad", 0)
+        porcentaje = datos.get("porcentaje", 0)
+
+        grafica = datos.get("grafica", {})
+
+        categoria_a = grafica.get("A", 0)
+        categoria_b = grafica.get("B", 0)
+        categoria_c = grafica.get("C", 0)
+
+        # print("========== KPI 6 ==========")
+        # print(datos)
+        # print("============================")
 
         # =====================================================
         # TARJETA PRINCIPAL
@@ -366,31 +382,31 @@ class DashboardView(ctk.CTkFrame):
         self.frame_alerta.pack(
             fill="x",
             padx=15,
-            pady=(10,15)
+            pady=(5,6)#(10,15)
         )
 
         ctk.CTkLabel(
             self.frame_alerta,
             text="⚠ REPUESTOS EN RIESGO",
-            font=("Arial",16,"bold"),
+            font=("Arial",12,"bold"),#16
             text_color="#B00020"
         ).pack(
-            pady=(15,5)
+            pady=(6,1)#(15,5)
         )
 
         ctk.CTkLabel(
             self.frame_alerta,
             text=str(cantidad),
-            font=("Arial",34,"bold"),
+            font=("Arial",30,"bold"),#34
             text_color="#D32F2F"
-        ).pack()
+        ).pack(pady=0)# no tenia pady
 
         ctk.CTkLabel(
             self.frame_alerta,
             text=f"{porcentaje:.2f}% del inventario",
             font=("Arial",14)
         ).pack(
-            pady=(5,15)
+            pady=(2,6)# (5,15)
         )
 
         # =====================================================
@@ -421,6 +437,8 @@ class DashboardView(ctk.CTkFrame):
             padx=15
         )
 
+        # self.frame_abc.configure(fg_color="red", height=200)
+        # self.frame_abc.pack_propagate(False)    
         self.frame_abc.grid_columnconfigure((0,1,2), weight=1)
 
         # =====================================================
@@ -447,6 +465,7 @@ class DashboardView(ctk.CTkFrame):
         ctk.CTkLabel(
             frame_a,
             text=str(categoria_a),
+            
             font=("Arial",28,"bold"),
             text_color="#D32F2F"
         ).pack(
@@ -469,6 +488,7 @@ class DashboardView(ctk.CTkFrame):
         ctk.CTkLabel(
             frame_b,
             text="Categoría B",
+            
             font=("Arial",13,"bold")
         ).pack(
             pady=(10,5)
@@ -499,6 +519,7 @@ class DashboardView(ctk.CTkFrame):
         ctk.CTkLabel(
             frame_c,
             text="Categoría C",
+            
             font=("Arial",13,"bold")
         ).pack(
             pady=(10,5)

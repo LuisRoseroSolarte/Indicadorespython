@@ -27,6 +27,7 @@ class ETLModel:
     def __init__(self):
 
         self.ruta_archivo =None #RUTA_ARCHIVO_EXCEL
+        #self.ruta_archivo=RUTA_ARCHIVO_EXCEL
 
     
     #*******************************************************

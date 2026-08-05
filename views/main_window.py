@@ -434,12 +434,36 @@ class MainView:
     # ACTUALIZAR VISTAS
     # =====================================================
 
-    def actualizar_vistas(self):
+    # def actualizar_vistas(self):
 
-        if hasattr(self, "inicio"):
+    #     if hasattr(self, "inicio"):
+    #         self.inicio.actualizar_datos()
+
+    #     if hasattr(self, "registros"):
+    #         self.registros.actualizar_datos()
+    
+    def actualizar_vistas(self):
+    
+        # ===========================
+        # Inicio
+        # ===========================
+
+        if (
+            hasattr(self, "inicio")
+            and self.inicio is not None
+            and self.inicio.winfo_exists()
+        ):
             self.inicio.actualizar_datos()
 
-        if hasattr(self, "registros"):
+        # ===========================
+        # Registros
+        # ===========================
+
+        if (
+            hasattr(self, "registros")
+            and self.registros is not None
+            and self.registros.winfo_exists()
+        ):
             self.registros.actualizar_datos()
     # =====================================================
     # ACTUALIZAR INICIO

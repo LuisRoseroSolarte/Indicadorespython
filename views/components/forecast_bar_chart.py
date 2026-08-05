@@ -31,11 +31,67 @@ class ForecastBarChart(ctk.CTkFrame):
     # GRÁFICA
     # =====================================================
 
-    def crear_grafica(self):
+    # def crear_grafica(self):
 
+    #     df = self.detalle.copy()
+
+    #     # eliminar pronósticos vacíos
+    #     df = df.dropna(subset=["pronostico_proximo_mes"])
+
+    #     # Top N
+    #     df = (
+    #         df.sort_values(
+    #             "pronostico_proximo_mes",
+    #             ascending=False
+    #         )
+    #         .head(self.top_n)
+    #     )
+
+    #     figura = Figure(
+    #         figsize=(6,4),
+    #         dpi=100
+    #     )
+
+    #     ax = figura.add_subplot(111)
+
+    #     ax.barh(
+    #         df["NOMBRE_ELEMENTO"],
+    #         df["pronostico_proximo_mes"]
+    #     )
+
+    #     ax.invert_yaxis()
+
+    #     # ax.set_title(
+    #     #     "Top 10 Consumo Esperado"
+    #     # )
+
+    #     ax.set_xlabel(
+    #         "Unidades Pronosticadas"
+    #     )
+
+    #     ax.grid(
+    #         axis="x",
+    #         alpha=0.30
+    #     )
+
+    #     figura.tight_layout()
+
+    #     canvas = FigureCanvasTkAgg(
+    #         figura,
+    #         self
+    #     )
+
+    #     canvas.draw()
+
+    #     canvas.get_tk_widget().pack(
+    #         fill="both",
+    #         expand=True
+    #     )
+    def crear_grafica(self):
+    
         df = self.detalle.copy()
 
-        # eliminar pronósticos vacíos
+        # Eliminar pronósticos vacíos
         df = df.dropna(subset=["pronostico_proximo_mes"])
 
         # Top N
@@ -45,10 +101,29 @@ class ForecastBarChart(ctk.CTkFrame):
                 ascending=False
             )
             .head(self.top_n)
+            .copy()
         )
 
+        # =====================================================
+        # ACORTAR NOMBRES LARGOS
+        # =====================================================
+
+        df["NOMBRE_ELEMENTO"] = (
+            df["NOMBRE_ELEMENTO"]
+            .apply(
+                lambda nombre:
+                nombre[:20] + "..."
+                if len(nombre) > 20
+                else nombre
+            )
+        )
+
+        # =====================================================
+        # CREAR FIGURA
+        # =====================================================
+
         figura = Figure(
-            figsize=(6,4),
+            figsize=(7, 4),
             dpi=100
         )
 
@@ -56,17 +131,26 @@ class ForecastBarChart(ctk.CTkFrame):
 
         ax.barh(
             df["NOMBRE_ELEMENTO"],
-            df["pronostico_proximo_mes"]
+            df["pronostico_proximo_mes"],
+            color="#2F7EB8"
         )
 
         ax.invert_yaxis()
 
-        # ax.set_title(
-        #     "Top 10 Consumo Esperado"
-        # )
-
         ax.set_xlabel(
-            "Unidades Pronosticadas"
+            "Unidades Pronosticadas",
+            fontsize=10
+        )
+
+        # Reducir tamaño de las etiquetas
+        ax.tick_params(
+            axis="y",
+            labelsize=8
+        )
+
+        ax.tick_params(
+            axis="x",
+            labelsize=9
         )
 
         ax.grid(
@@ -74,7 +158,8 @@ class ForecastBarChart(ctk.CTkFrame):
             alpha=0.30
         )
 
-        figura.tight_layout()
+        # Dar más espacio al lado izquierdo
+        figura.subplots_adjust(left=0.40)
 
         canvas = FigureCanvasTkAgg(
             figura,

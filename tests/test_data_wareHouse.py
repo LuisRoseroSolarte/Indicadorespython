@@ -20,6 +20,19 @@ def test_datawarehouse_model():
         try:
             dw.actualizar_datawarehouse()
             print("✅ Data Warehouse actualizado correctamente.")
+            
+            # 🔹 Imprimir las tres tablas solicitadas
+            print("\n📊 Contenido de las tablas del Data Warehouse:")
+            
+            print("\n--- Tabla dim_fecha ---")
+            print(dw._obtener_dim_tiempo())
+
+            print("\n--- Tabla dim_producto ---")
+            print(dw._obtener_dim_producto())
+
+            print("\n--- Tabla fact_movimientos ---")
+            print(dw._obtener_fact_movimientos())
+        
         except Exception as error:
             print(f"❌ Error al actualizar el Data Warehouse: {error}")
             raise

@@ -358,7 +358,8 @@ class AppController:
         """
         Actualiza el stock mínimo de un repuesto.
         """
-       
+        print("========================================================================")
+        print("SOY EL METODO actualizar _stock_minimo ME ENCUENTROEN EN EL CONTROLADOR")
 
         self.datawarehouse_model.actualizar_stock_minimo(
             elem,
@@ -367,9 +368,15 @@ class AppController:
         
         # Recalcular KPIs
         self.recalcular_kpis_stock_minimo()
+       
+        # Recargar DW
+        self.cargar_datawarehouse()
         
-        if self.main_view is not None:
-            self.main_view.actualizar_vistas()
+        # Recalcular KPIs
+        self.calcular_kpis()
+        
+        # if self.main_view is not None:
+        #     self.main_view.actualizar_vistas()
 
         print(
             f"Stock mínimo actualizado para {elem}"
@@ -388,7 +395,7 @@ class AppController:
         Recalcula únicamente los KPIs afectados por el cambio
         del stock mínimo.
         """
-
+        print("LLAMANDO AL METODO :calcular_alertas_stock()")
         self.kpi3_alertas_stock = (
             self.analytics_model.calcular_alertas_stock()
         )
@@ -397,7 +404,7 @@ class AppController:
         #     self.analytics_model.calcular_menor_cobertura()
         # )
 
-        print("KPIs actualizados correctamente.")   
+        print("KPIs  recalculdos  correctamente.")   
         
     #========================================================
     # devuelve los kpis 

@@ -50,16 +50,16 @@ class ProjectedInventoryChart(ctk.CTkFrame):
         # Nombres cortos
         df["NOMBRE_CORTO"] = (
             df["NOMBRE_ELEMENTO"]
-            .str.slice(0, 25)
+            .str.slice(0, 15)
         )
 
         df.loc[
-            df["NOMBRE_ELEMENTO"].str.len() > 25,
+            df["NOMBRE_ELEMENTO"].str.len() > 15,
             "NOMBRE_CORTO"
         ] += "..."
 
         figura = Figure(
-            figsize=(8,4),
+            figsize=(6,3),
             dpi=100
         )
 
@@ -97,7 +97,7 @@ class ProjectedInventoryChart(ctk.CTkFrame):
 
         ax.tick_params(
             axis="x",
-            labelsize=6, 
+            labelsize=5,#6, 
             rotation=45
         )
 
