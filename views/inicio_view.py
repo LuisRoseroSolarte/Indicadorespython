@@ -212,6 +212,11 @@ class HomeView(ctk.CTkFrame):
             pady=(15, 20),
             sticky="nsew"
         )
+        
+        # Dos columnas codigo nuevo
+        self.frame_estado.grid_columnconfigure(0, weight=1)
+        self.frame_estado.grid_columnconfigure(1, weight=1)
+
 
         # =====================================================
         # TITULO
@@ -226,6 +231,7 @@ class HomeView(ctk.CTkFrame):
         self.lbl_estado.grid(
             row=0,
             column=0,
+            columnspan=2,#codigo nuevo
             sticky="w",
             pady=(0, 10)
         )
@@ -243,9 +249,8 @@ class HomeView(ctk.CTkFrame):
                 "B": 0,
                 "C": 0
             }
-
         # =====================================================
-        # COMPONENTE DISTRIBUCIÓN ABC
+        # GRAFICA codigo nuevo
         # =====================================================
 
         self.distribucion_abc = ABCDistribution(
@@ -256,10 +261,241 @@ class HomeView(ctk.CTkFrame):
         self.distribucion_abc.grid(
             row=1,
             column=0,
-            sticky="ew"
+            sticky="nsew",
+            padx=(0,15)
+        )
+        
+         # =====================================================
+        # NUEVO CONTENEDOR TABLA
+        # =====================================================
+
+        self.frame_tabla_abc = ctk.CTkFrame(
+            self.frame_estado
+        )
+
+        self.frame_tabla_abc.grid(
+            row=1,
+            column=1,
+            sticky="nsew"
+        )
+        
+        #crear nueva tabla
+        self.crear_tabla_repuestos_abc()
+
+        # =====================================================
+        # COMPONENTE DISTRIBUCIÓN ABC codigo viejo desabilitado 
+        # =====================================================
+
+        # self.distribucion_abc = ABCDistribution(
+        #     parent=self.frame_estado,
+        #     datos=datos_abc
+        # )
+
+        # self.distribucion_abc.grid(
+        #     row=1,
+        #     column=0,
+        #     sticky="ew"
+        # )
+        
+    
+    # =====================================================
+    # TABLA REPUESTOS REPRESENTATIVOS ABC
+    # =====================================================
+
+    def crear_tabla_repuestos_abc(self):
+        
+       
+        datos = self.controlador.tabla_repuestos_abc
+
+        # -------------------------------------------------
+        # Título
+        # -------------------------------------------------
+
+        ctk.CTkLabel(
+            self.frame_tabla_abc,
+            text="Repuestos Representativos ABC",
+            font=("Arial",14,"bold")
+        ).pack(
+            anchor="w",
+            padx=10,
+            pady=(10,5)
+        )
+
+        # -------------------------------------------------
+        # Encabezados
+        # -------------------------------------------------
+
+        frame_header = ctk.CTkFrame(
+            self.frame_tabla_abc,
+            fg_color="#E5E5E5"
+        )
+
+        frame_header.pack(
+            fill="x",
+            padx=10
+        )
+
+        frame_header.grid_columnconfigure(0, weight=5)
+        frame_header.grid_columnconfigure(1, weight=1)
+        frame_header.grid_columnconfigure(2, weight=2)
+
+        ctk.CTkLabel(
+            frame_header,
+            text="Repuesto",
+            font=("Arial",11,"bold")
+        ).grid(row=0,column=0,padx=5,pady=5,sticky="w")
+
+        ctk.CTkLabel(
+            frame_header,
+            text="Cat.",
+            font=("Arial",11,"bold")
+        ).grid(row=0,column=1,padx=5,pady=5)
+
+        ctk.CTkLabel(
+            frame_header,
+            text="Stock",
+            font=("Arial",11,"bold")
+        ).grid(row=0,column=2,padx=5,pady=5)
+
+        # -------------------------------------------------
+        # Scroll
+        # -------------------------------------------------
+
+        scroll = ctk.CTkScrollableFrame(
+            self.frame_tabla_abc,
+            height=260
+        )
+
+        scroll.pack(
+            fill="both",
+            expand=True,
+            padx=10,
+            pady=(5,10)
         )
         
         
+        # -------------------------------------------------
+        # Filas
+        # -------------------------------------------------
+
+        # for _, fila in datos.iterrows():
+
+        #     fila_frame = ctk.CTkFrame(
+        #         scroll,
+        #         fg_color="transparent"
+        #     )
+
+        #     fila_frame.pack(
+        #         fill="x",
+        #         pady=1
+        #     )
+
+        #     fila_frame.grid_columnconfigure(0, weight=5)
+        #     fila_frame.grid_columnconfigure(1, weight=1)
+        #     fila_frame.grid_columnconfigure(2, weight=2)
+
+        #     ctk.CTkLabel(
+        #         fila_frame,
+        #         text=fila["REPUESTO"][:30],
+        #         anchor="w",
+        #         font=("Arial",12)# cambiar tamaño nombre 
+        #     ).grid(
+        #         row=0,
+        #         column=0,
+        #         sticky="w",
+        #         padx=5
+        #     )
+            
+        #     #=================================================================
+        #     #contenedor para categoria 
+        #     #===============================================
+        #     frame_categoria = ctk.CTkFrame(
+        #         fila_frame,
+        #         fg_color="transparent"
+        #     )
+    
+        #     frame_categoria.grid(
+        #         row=0,
+        #         column=1,
+        #         sticky="nsew"
+        #     )
+            
+
+        #     ctk.CTkLabel(
+        #         #fila_frame,
+        #         frame_categoria,
+        #         text=fila["CATEGORIA"],
+        #         font=("Arial",10,"bold"),
+        #         # anchor="center",
+        #         # justify="center",
+        #         # width=60#40s
+        #     ).pack(expand=True)
+            
+        #     # grid(
+        #     #     row=0,
+        #     #     column=1,
+        #     #     padx=5,
+        #     #     sticky="nsew"
+        #     # )
+
+        #     ctk.CTkLabel(
+        #         fila_frame,
+        #         text=f"{fila['STOCK']:.2f}",
+        #         font=("Arial",10)
+        #     ).grid(
+        #         row=0,
+        #         column=2
+        #     )
+        for _, fila in datos.iterrows():
+            
+            fila_frame = ctk.CTkFrame(
+                scroll,
+                fg_color="transparent"
+            )
+
+            fila_frame.pack(
+                fill="x",
+                pady=1
+            )
+
+            # -----------------------------
+            # REPUESTO
+            # -----------------------------
+            ctk.CTkLabel(
+                fila_frame,
+                text=fila["REPUESTO"][:32],
+                font=("Arial",11),
+                anchor="w",
+                width=320
+            ).pack(
+                side="left",
+                padx=(5,0)
+            )
+
+            # -----------------------------
+            # CATEGORIA
+            # -----------------------------
+            ctk.CTkLabel(
+                fila_frame,
+                text=fila["CATEGORIA"],
+                font=("Arial",11,"bold"),
+                width=40
+            ).pack(
+                side="left"
+            )
+
+            # -----------------------------
+            # STOCK
+            # -----------------------------
+            ctk.CTkLabel(
+                fila_frame,
+                text=f"{fila['STOCK']:.2f}",
+                font=("Arial",11),
+                width=80
+            ).pack(
+                side="right",
+                padx=(0,5)
+            )            
    
     def actualizar(self):
         """

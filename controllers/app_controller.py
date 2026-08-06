@@ -55,6 +55,13 @@ class AppController:
         # ============================
         self.kpi1_clasificacion_abc = {"A": 0, "B": 0, "C": 0}
         self.kpi2_valorizacion_total =0
+        self.tabla_repuestos_abc=pd.DataFrame(
+                                                    columns=[
+                                                        "REPUESTO",
+                                                        "CATEGORIA",
+                                                        "STOCK"
+                                                    ]
+                                                )
         self.kpi3_alertas_stock = pd.DataFrame(columns=["INDICADOR", "CANTIDAD"])
         self.kpi4_menor_cobertura = pd.DataFrame(
                                                     columns=[
@@ -283,10 +290,15 @@ class AppController:
         logger.info("PASO 4: Calculando los 10 KPIs...")
 
         self.kpi1_clasificacion_abc = self.analytics_model.calcular_clasificacion_abc()
+        
+        # NUEVO
+        self.tabla_repuestos_abc = self.analytics_model.obtener_tabla_repuestos_abc()
+
 
         self.kpi2_valorizacion_total = self.analytics_model.calcular_valorizacion_total_inventario()
         
         self.kpi_distribucion_abc_valor =self.analytics_model.calcular_distribucion_abc()
+        
         self.kpi3_alertas_stock = self.analytics_model.calcular_alertas_stock()
 
         self.kpi4_menor_cobertura = self.analytics_model.calcular_top10_menor_cobertura()

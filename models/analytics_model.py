@@ -137,6 +137,8 @@ class AnalyticsModels:
         logger.info(
             f"Capital inmovilizado: ${valorizacion_total:,.2f}"
         )
+        
+       
 
         return float(valorizacion_total)
     #*******************************************************************************************
@@ -152,7 +154,7 @@ class AnalyticsModels:
 
         # 1. Obtener DataFrame con clasificación ABC
         df_abc = self.calcular_clasificacion_abc()
-
+        
         # 2. Obtener valorización total
         total_valor = self.calcular_valorizacion_total_inventario()
 
@@ -279,17 +281,12 @@ class AnalyticsModels:
             resumen["total_salidas"] / resumen["dias_historial"]
         )
 
-        resumen = resumen[resumen["consumo_diario_promedio"] > 0].copy()
+        resumen = resumen[resumen["consumo_diario_promedio"] >= 1].copy()
 
         # =====================================================
         # OBTENER STOCK ACTUAL (último ACUM_CANTIDAD de cada producto)
         # =====================================================
-        # ultimo_movimiento = (
-        #     movimientos.sort_values("FECHA")
-        #     .groupby("ELEM")
-        #     .tail(1)[["ELEM", "ACUM_CANTIDAD"]]
-        #     .rename(columns={"ACUM_CANTIDAD": "stock_actual"})
-        # )
+        
 
         ultimo_movimiento = (
             movimientos.reset_index()
@@ -300,14 +297,19 @@ class AnalyticsModels:
             )
 
         resumen = resumen.merge(ultimo_movimiento, on="ELEM", how="inner")
-
+        
+        # =====================================================
+        # FILTRAR REPUESTOS SIN STOCK (stock_actual = 0)
+        # =====================================================
+        resumen = resumen[resumen["stock_actual"] > 0].copy()
+        
         # =====================================================
         # FASE 2: DÍAS DE COBERTURA
         # =====================================================
         resumen["dias_cobertura"] = (
             resumen["stock_actual"] / resumen["consumo_diario_promedio"]
         )
-
+        resumen["dias_cobertura"] = np.floor(resumen["dias_cobertura"]).astype(int)
         # =====================================================
         # FASE 3: TOP 10 ASCENDENTE (menor cobertura = más crítico)
         # =====================================================
@@ -990,19 +992,14 @@ class AnalyticsModels:
             ["ELEM", "pronostico_proximo_mes"]
         ].copy()
         
-        # =====================================================
-        # REUTILIZAR EL PRONÓSTICO MENSUAL YA CALCULADO (KPI 8)
-        # =====================================================
-        # resultado_kpi8 = self.calcular_pronostico_consumo_mensual()
-        # pronostico = resultado_kpi8["detalle"][
-        #     ["ELEM", "pronostico_proximo_mes"]
-        # ].copy()
-
+        
         # =====================================================
         # OBTENER STOCK ACTUAL (último ACUM_CANTIDAD por producto)
         # =====================================================
         movimientos = self.fact_movimientos[["ELEM", "FECHA", "ACUM_CANTIDAD"]].copy()
         movimientos["FECHA"] = pd.to_datetime(movimientos["FECHA"], errors="coerce")
+        
+        
 
         stock_actual = (
             movimientos.sort_values("FECHA")
@@ -1012,6 +1009,11 @@ class AnalyticsModels:
         )
 
         datos = pronostico.merge(stock_actual, on="ELEM", how="inner")
+        
+        # =====================================================
+        # NUEVO: FILTRAR ÚNICAMENTE PRODUCTOS CON STOCK MAYOR A 0
+        # =====================================================
+        datos = datos[datos["stock_actual"] > 0].copy()
 
         # =====================================================
         # CONSUMO DIARIO PROYECTADO
@@ -1031,11 +1033,19 @@ class AnalyticsModels:
                 return pd.Series({"dias_agotamiento": np.inf, "estado": "Sin riesgo (sin consumo proyectado)"})
 
             dias = fila["stock_actual"] / fila["consumo_diario_proyectado"]
-            estado = "Crítico" if dias <= umbral_critico_dias else "Normal"
-            return pd.Series({"dias_agotamiento": dias, "estado": estado})
+            #redondeo hacia abajo=======================================================
+            dias_entero =int(round(dias))
+            estado = "Crítico" if dias_entero <= umbral_critico_dias else "Normal"
+            return pd.Series({"dias_agotamiento": dias_entero, "estado": estado})
 
-        datos[["dias_agotamiento", "estado"]] = datos.apply(calcular_fila, axis=1)
-
+        # se cambio por esto:datos[["dias_agotamiento", "estado"]] = datos.apply(calcular_fila, axis=1)
+        # Si tras el filtro no quedan filas, se evita un error en la aplicación
+        if datos.empty:
+            datos["dias_agotamiento"] = pd.Series(dtype=float)
+            datos["estado"] = pd.Series(dtype=str)
+        else:
+            datos[["dias_agotamiento", "estado"]] = datos.apply(calcular_fila, axis=1)
+            
         # Agregar nombre del producto
         nombres = self.dim_producto[["ELEM", "NOMBRE_ELEMENTO"]].copy()
         datos = datos.merge(nombres, on="ELEM", how="left")
@@ -1161,8 +1171,90 @@ class AnalyticsModels:
             "cantidad_riesgo_desabastecimiento": int(cantidad_riesgo),
             "detalle": detalle
         }
+    
+    # ==========================================================
+    # TABLA REPUESTOS REPRESENTATIVOS ABC
+    # ==========================================================
+
+    def obtener_tabla_repuestos_abc(self):
+        """
+        Retorna una tabla con:
+
+        - Top 10 repuestos categoría A.
+        - Top 10 repuestos categoría B.
+        - Top 5 repuestos categoría C.
+
+        Columnas:
+            - NOMBRE_ELEMENTO
+            - CATEGORIA
+            - ACUM_CANTIDAD
+        """
+
+        logger.info("Construyendo tabla de repuestos representativos ABC...")
         
         
 
-#**********************************************************************
+        df = self.calcular_clasificacion_abc()
+        
+        # -----------------------------
+        # Categoría A
+        # -----------------------------
+        categoria_a = (
+            df[df["CATEGORIA"] == "A"]
+            .head(10)
+        )
+
+        # -----------------------------
+        # Categoría B
+        # -----------------------------
+        categoria_b = (
+            df[df["CATEGORIA"] == "B"]
+            .head(10)
+        )
+
+        # -----------------------------
+        # Categoría C
+        # -----------------------------
+        categoria_c = (
+            df[df["CATEGORIA"] == "C"]
+            .head(5)
+        )
+
+        # -----------------------------
+        # Unir resultados
+        # -----------------------------
+        resultado = pd.concat(
+            [
+                categoria_a,
+                categoria_b,
+                categoria_c
+            ],
+            ignore_index=True
+        )
+
+        # -----------------------------
+        # Seleccionar columnas
+        # -----------------------------
+        resultado = resultado[
+            [
+                "NOMBRE_ELEMENTO",
+                "CATEGORIA",
+                "ACUM_CANTIDAD"
+            ]
+        ].rename(
+            columns={
+                "NOMBRE_ELEMENTO": "REPUESTO",
+                "ACUM_CANTIDAD": "STOCK"
+            }
+        )
+
+        logger.info(
+            f"Tabla ABC construida correctamente. "
+            f"Registros: {len(resultado)}"
+        )
+        
+        return resultado    
+        
+
+
             
