@@ -1201,7 +1201,8 @@ class AnalyticsModels:
         # -----------------------------
         categoria_a = (
             df[df["CATEGORIA"] == "A"]
-            .head(10)
+            .sort_values("ACUM_CANTIDAD")
+            .head(20)
         )
 
         # -----------------------------
@@ -1209,7 +1210,8 @@ class AnalyticsModels:
         # -----------------------------
         categoria_b = (
             df[df["CATEGORIA"] == "B"]
-            .head(10)
+            .sort_values("ACUM_CANTIDAD")
+            .head(20)
         )
 
         # -----------------------------
@@ -1217,7 +1219,8 @@ class AnalyticsModels:
         # -----------------------------
         categoria_c = (
             df[df["CATEGORIA"] == "C"]
-            .head(5)
+            .sort_values("ACUM_CANTIDAD")
+            .head(20)
         )
 
         # -----------------------------
@@ -1247,6 +1250,12 @@ class AnalyticsModels:
                 "ACUM_CANTIDAD": "STOCK"
             }
         )
+        
+        # -----------------------------
+        # Ordenar de menor a mayor stock
+        # -----------------------------
+        resultado = resultado.sort_values("STOCK", ascending=True).reset_index(drop=True)
+
 
         logger.info(
             f"Tabla ABC construida correctamente. "

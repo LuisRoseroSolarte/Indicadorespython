@@ -14584,3 +14584,903 @@
 05/08/2026 21:25:21 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 10 - Nivel de inventario proyectado...
 05/08/2026 21:25:21 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 10 calculado correctamente. Productos en riesgo de desabastecimiento: 14
 05/08/2026 21:25:21 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Los 10 KPIs se calcularon correctamente.
+06/08/2026 06:55:44 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Iniciando carga de Excel...
+06/08/2026 06:55:44 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando proceso ETL.
+06/08/2026 06:55:44 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Leyendo archivo Excel...
+06/08/2026 06:55:54 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Archivo leído correctamente.
+06/08/2026 06:55:54 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Registros filtrados correctamente. Filas: 1199 | Columnas: 30
+06/08/2026 06:55:54 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Conversión de tipos de datos completada.
+06/08/2026 06:55:54 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Unidades normalizadas correctamente.
+06/08/2026 06:55:54 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Maestro de repuestos: 377 registros.
+06/08/2026 06:55:54 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Movimientos de inventario: 1199 registros.
+06/08/2026 06:55:54 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Proceso ETL finalizado correctamente.
+06/08/2026 06:55:54 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron: 377 elementos
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron : 1199 elementos 
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando STOCK_MINIMO a partir del consumo histórico...
+06/08/2026 06:55:55 | NIVEL: WARNING | ORIGEN: inventarioAAp | MENSAJE: 196 productos no tienen suficiente historial para calcular STOCK_MINIMO y se les asignará el valor por defecto (12).
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: STOCK_MINIMO actualizado para 377 productos (181 calculados, 196 con valor por defecto).
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando actualización de la clasificación ABC...
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC actualizada correctamente en MAESTRO_REPUESTOS.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Carga de Excel completada correctamente.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Actualizando Data Warehouse...
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Vaciando tablas del Data Warehouse...
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Reiniciando AUTOINCREMENT de FACT_MOVIMIENTOS...
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Autoincrement reiniciado correctamente
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_PRODUCTO...
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: elementos cargados correctamente en DIM_PRODUCTOregistros insertados: 377
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_TIEMPO
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: fecha cargada correctamente n DIM_TIEMPO
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: construyendo FACT_MOVIMIENTOS....
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: FACT_MOVIMIENTOS cargado correctamente. Registros insertados: 1050
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Data Warehouse actualizado correctamente.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Data Warehouse actualizado correctamente.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: Cargando DataFrames del Data Warehouse...
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo estado actual del inventario...
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Estado actual construido correctamente. Registros: 377
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: DataFrames del Data Warehouse cargados correctamente.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Calculando los 10 KPIs...
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo tabla de repuestos representativos ABC...
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Tabla ABC construida correctamente. Registros: 25
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $552,917,396.79
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $552,917,396.79
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 3 - Alertas de Stock.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 3 calculado correctamente.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando Top 10 de menor cobertura (desde el Data Warehouse)...
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Top 10 de menor cobertura calculado. 10 productos encontrados.
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 5 - Costo proyectado de reposición...
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 5 calculado correctamente. Costo total proyectado: 612,394,966.18
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 6 - Indicador de obsolescencia predictivo...
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 6 calculado correctamente. Alta probabilidad: 31
+06/08/2026 06:55:55 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 7 - Tendencia del consumo...
+06/08/2026 06:55:56 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 7 calculado correctamente. Creciente: 15 | Decreciente: 22 | Estable: 38 | Sin datos suficientes: 302
+06/08/2026 06:55:56 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 8 - Pronóstico de consumo mensual...
+06/08/2026 06:55:56 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 8 calculado correctamente. Total pronosticado próximo mes: 2,092.47 unidades. Productos sin datos suficientes: 292
+06/08/2026 06:55:56 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 9 - Pronóstico de agotamiento del inventario...
+06/08/2026 06:55:56 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 9 calculado correctamente. Productos críticos (<= 30 días): 19
+06/08/2026 06:55:56 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 10 - Nivel de inventario proyectado...
+06/08/2026 06:55:56 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 10 calculado correctamente. Productos en riesgo de desabastecimiento: 14
+06/08/2026 06:55:56 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Los 10 KPIs se calcularon correctamente.
+06/08/2026 07:00:51 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Iniciando carga de Excel...
+06/08/2026 07:00:51 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando proceso ETL.
+06/08/2026 07:00:51 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Leyendo archivo Excel...
+06/08/2026 07:01:01 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Archivo leído correctamente.
+06/08/2026 07:01:01 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Registros filtrados correctamente. Filas: 4934 | Columnas: 30
+06/08/2026 07:01:01 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Conversión de tipos de datos completada.
+06/08/2026 07:01:01 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Unidades normalizadas correctamente.
+06/08/2026 07:01:01 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Maestro de repuestos: 2101 registros.
+06/08/2026 07:01:01 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Movimientos de inventario: 4934 registros.
+06/08/2026 07:01:01 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Proceso ETL finalizado correctamente.
+06/08/2026 07:01:01 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron: 2101 elementos
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron : 4908 elementos 
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando STOCK_MINIMO a partir del consumo histórico...
+06/08/2026 07:01:02 | NIVEL: WARNING | ORIGEN: inventarioAAp | MENSAJE: 1705 productos no tienen suficiente historial para calcular STOCK_MINIMO y se les asignará el valor por defecto (12).
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: STOCK_MINIMO actualizado para 2101 productos (396 calculados, 1705 con valor por defecto).
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando actualización de la clasificación ABC...
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC actualizada correctamente en MAESTRO_REPUESTOS.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Carga de Excel completada correctamente.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Actualizando Data Warehouse...
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Vaciando tablas del Data Warehouse...
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Reiniciando AUTOINCREMENT de FACT_MOVIMIENTOS...
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Autoincrement reiniciado correctamente
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_PRODUCTO...
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: elementos cargados correctamente en DIM_PRODUCTOregistros insertados: 2101
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_TIEMPO
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: fecha cargada correctamente n DIM_TIEMPO
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: construyendo FACT_MOVIMIENTOS....
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: FACT_MOVIMIENTOS cargado correctamente. Registros insertados: 3837
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Data Warehouse actualizado correctamente.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Data Warehouse actualizado correctamente.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: Cargando DataFrames del Data Warehouse...
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo estado actual del inventario...
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Estado actual construido correctamente. Registros: 2101
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: DataFrames del Data Warehouse cargados correctamente.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Calculando los 10 KPIs...
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo tabla de repuestos representativos ABC...
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Tabla ABC construida correctamente. Registros: 25
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $1,285,017,614.09
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $1,285,017,614.09
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 3 - Alertas de Stock.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 3 calculado correctamente.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando Top 10 de menor cobertura (desde el Data Warehouse)...
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Top 10 de menor cobertura calculado. 10 productos encontrados.
+06/08/2026 07:01:02 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 5 - Costo proyectado de reposición...
+06/08/2026 07:01:04 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 5 calculado correctamente. Costo total proyectado: 229,168,695.56
+06/08/2026 07:01:04 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 6 - Indicador de obsolescencia predictivo...
+06/08/2026 07:01:04 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 6 calculado correctamente. Alta probabilidad: 178
+06/08/2026 07:01:04 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 7 - Tendencia del consumo...
+06/08/2026 07:01:05 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 7 calculado correctamente. Creciente: 17 | Decreciente: 37 | Estable: 149 | Sin datos suficientes: 1898
+06/08/2026 07:01:05 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 8 - Pronóstico de consumo mensual...
+06/08/2026 07:01:05 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 8 calculado correctamente. Total pronosticado próximo mes: 2,815.97 unidades. Productos sin datos suficientes: 1982
+06/08/2026 07:01:05 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 9 - Pronóstico de agotamiento del inventario...
+06/08/2026 07:01:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 9 calculado correctamente. Productos críticos (<= 30 días): 24
+06/08/2026 07:01:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 10 - Nivel de inventario proyectado...
+06/08/2026 07:01:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 10 calculado correctamente. Productos en riesgo de desabastecimiento: 17
+06/08/2026 07:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Los 10 KPIs se calcularon correctamente.
+06/08/2026 07:34:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Iniciando carga de Excel...
+06/08/2026 07:34:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando proceso ETL.
+06/08/2026 07:34:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Leyendo archivo Excel...
+06/08/2026 07:34:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Archivo leído correctamente.
+06/08/2026 07:34:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Registros filtrados correctamente. Filas: 4934 | Columnas: 30
+06/08/2026 07:34:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Conversión de tipos de datos completada.
+06/08/2026 07:34:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Unidades normalizadas correctamente.
+06/08/2026 07:34:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Maestro de repuestos: 2101 registros.
+06/08/2026 07:34:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Movimientos de inventario: 4934 registros.
+06/08/2026 07:34:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Proceso ETL finalizado correctamente.
+06/08/2026 07:34:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron: 2101 elementos
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron : 4908 elementos 
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando STOCK_MINIMO a partir del consumo histórico...
+06/08/2026 07:34:41 | NIVEL: WARNING | ORIGEN: inventarioAAp | MENSAJE: 1705 productos no tienen suficiente historial para calcular STOCK_MINIMO y se les asignará el valor por defecto (1).
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: STOCK_MINIMO actualizado para 2101 productos (396 calculados, 1705 con valor por defecto).
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando actualización de la clasificación ABC...
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC actualizada correctamente en MAESTRO_REPUESTOS.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Carga de Excel completada correctamente.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Actualizando Data Warehouse...
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Vaciando tablas del Data Warehouse...
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Reiniciando AUTOINCREMENT de FACT_MOVIMIENTOS...
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Autoincrement reiniciado correctamente
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_PRODUCTO...
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: elementos cargados correctamente en DIM_PRODUCTOregistros insertados: 2101
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_TIEMPO
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: fecha cargada correctamente n DIM_TIEMPO
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: construyendo FACT_MOVIMIENTOS....
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: FACT_MOVIMIENTOS cargado correctamente. Registros insertados: 3837
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Data Warehouse actualizado correctamente.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Data Warehouse actualizado correctamente.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: Cargando DataFrames del Data Warehouse...
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo estado actual del inventario...
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Estado actual construido correctamente. Registros: 2101
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: DataFrames del Data Warehouse cargados correctamente.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Calculando los 10 KPIs...
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo tabla de repuestos representativos ABC...
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Tabla ABC construida correctamente. Registros: 25
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $1,285,017,614.09
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $1,285,017,614.09
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 3 - Alertas de Stock.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 3 calculado correctamente.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando Top 10 de menor cobertura (desde el Data Warehouse)...
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Top 10 de menor cobertura calculado. 10 productos encontrados.
+06/08/2026 07:34:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 5 - Costo proyectado de reposición...
+06/08/2026 07:34:43 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 5 calculado correctamente. Costo total proyectado: 229,168,695.56
+06/08/2026 07:34:43 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 6 - Indicador de obsolescencia predictivo...
+06/08/2026 07:34:43 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 6 calculado correctamente. Alta probabilidad: 178
+06/08/2026 07:34:43 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 7 - Tendencia del consumo...
+06/08/2026 07:34:44 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 7 calculado correctamente. Creciente: 17 | Decreciente: 37 | Estable: 149 | Sin datos suficientes: 1898
+06/08/2026 07:34:44 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 8 - Pronóstico de consumo mensual...
+06/08/2026 07:34:44 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 8 calculado correctamente. Total pronosticado próximo mes: 2,815.97 unidades. Productos sin datos suficientes: 1982
+06/08/2026 07:34:44 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 9 - Pronóstico de agotamiento del inventario...
+06/08/2026 07:34:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 9 calculado correctamente. Productos críticos (<= 30 días): 24
+06/08/2026 07:34:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 10 - Nivel de inventario proyectado...
+06/08/2026 07:34:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 10 calculado correctamente. Productos en riesgo de desabastecimiento: 17
+06/08/2026 07:34:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Los 10 KPIs se calcularon correctamente.
+06/08/2026 07:37:19 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Iniciando carga de Excel...
+06/08/2026 07:37:19 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando proceso ETL.
+06/08/2026 07:37:19 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Leyendo archivo Excel...
+06/08/2026 07:37:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Archivo leído correctamente.
+06/08/2026 07:37:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Registros filtrados correctamente. Filas: 4934 | Columnas: 30
+06/08/2026 07:37:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Conversión de tipos de datos completada.
+06/08/2026 07:37:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Unidades normalizadas correctamente.
+06/08/2026 07:37:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Maestro de repuestos: 2101 registros.
+06/08/2026 07:37:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Movimientos de inventario: 4934 registros.
+06/08/2026 07:37:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Proceso ETL finalizado correctamente.
+06/08/2026 07:37:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron: 2101 elementos
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron : 4908 elementos 
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando STOCK_MINIMO a partir del consumo histórico...
+06/08/2026 07:37:30 | NIVEL: WARNING | ORIGEN: inventarioAAp | MENSAJE: 1705 productos no tienen suficiente historial para calcular STOCK_MINIMO y se les asignará el valor por defecto (1).
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: STOCK_MINIMO actualizado para 2101 productos (396 calculados, 1705 con valor por defecto).
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando actualización de la clasificación ABC...
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC actualizada correctamente en MAESTRO_REPUESTOS.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Carga de Excel completada correctamente.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Actualizando Data Warehouse...
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Vaciando tablas del Data Warehouse...
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Reiniciando AUTOINCREMENT de FACT_MOVIMIENTOS...
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Autoincrement reiniciado correctamente
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_PRODUCTO...
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: elementos cargados correctamente en DIM_PRODUCTOregistros insertados: 2101
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_TIEMPO
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: fecha cargada correctamente n DIM_TIEMPO
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: construyendo FACT_MOVIMIENTOS....
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: FACT_MOVIMIENTOS cargado correctamente. Registros insertados: 3837
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Data Warehouse actualizado correctamente.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Data Warehouse actualizado correctamente.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: Cargando DataFrames del Data Warehouse...
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo estado actual del inventario...
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Estado actual construido correctamente. Registros: 2101
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: DataFrames del Data Warehouse cargados correctamente.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Calculando los 10 KPIs...
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo tabla de repuestos representativos ABC...
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Tabla ABC construida correctamente. Registros: 25
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $1,285,017,614.09
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $1,285,017,614.09
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 3 - Alertas de Stock.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 3 calculado correctamente.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando Top 10 de menor cobertura (desde el Data Warehouse)...
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Top 10 de menor cobertura calculado. 10 productos encontrados.
+06/08/2026 07:37:30 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 5 - Costo proyectado de reposición...
+06/08/2026 07:37:32 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 5 calculado correctamente. Costo total proyectado: 229,168,695.56
+06/08/2026 07:37:32 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 6 - Indicador de obsolescencia predictivo...
+06/08/2026 07:37:32 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 6 calculado correctamente. Alta probabilidad: 178
+06/08/2026 07:37:32 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 7 - Tendencia del consumo...
+06/08/2026 07:37:33 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 7 calculado correctamente. Creciente: 17 | Decreciente: 37 | Estable: 149 | Sin datos suficientes: 1898
+06/08/2026 07:37:33 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 8 - Pronóstico de consumo mensual...
+06/08/2026 07:37:33 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 8 calculado correctamente. Total pronosticado próximo mes: 2,815.97 unidades. Productos sin datos suficientes: 1982
+06/08/2026 07:37:33 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 9 - Pronóstico de agotamiento del inventario...
+06/08/2026 07:37:34 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 9 calculado correctamente. Productos críticos (<= 30 días): 24
+06/08/2026 07:37:34 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 10 - Nivel de inventario proyectado...
+06/08/2026 07:37:34 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 10 calculado correctamente. Productos en riesgo de desabastecimiento: 17
+06/08/2026 07:37:35 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Los 10 KPIs se calcularon correctamente.
+06/08/2026 07:38:25 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Iniciando carga de Excel...
+06/08/2026 07:38:25 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando proceso ETL.
+06/08/2026 07:38:25 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Leyendo archivo Excel...
+06/08/2026 07:38:35 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Archivo leído correctamente.
+06/08/2026 07:38:35 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Registros filtrados correctamente. Filas: 4934 | Columnas: 30
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Conversión de tipos de datos completada.
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Unidades normalizadas correctamente.
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Maestro de repuestos: 2101 registros.
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Movimientos de inventario: 4934 registros.
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Proceso ETL finalizado correctamente.
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron: 2101 elementos
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron : 4908 elementos 
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando STOCK_MINIMO a partir del consumo histórico...
+06/08/2026 07:38:36 | NIVEL: WARNING | ORIGEN: inventarioAAp | MENSAJE: 1705 productos no tienen suficiente historial para calcular STOCK_MINIMO y se les asignará el valor por defecto (1).
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: STOCK_MINIMO actualizado para 2101 productos (396 calculados, 1705 con valor por defecto).
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando actualización de la clasificación ABC...
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC actualizada correctamente en MAESTRO_REPUESTOS.
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Carga de Excel completada correctamente.
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Actualizando Data Warehouse...
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Vaciando tablas del Data Warehouse...
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Reiniciando AUTOINCREMENT de FACT_MOVIMIENTOS...
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Autoincrement reiniciado correctamente
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_PRODUCTO...
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: elementos cargados correctamente en DIM_PRODUCTOregistros insertados: 2101
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_TIEMPO
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: fecha cargada correctamente n DIM_TIEMPO
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: construyendo FACT_MOVIMIENTOS....
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: FACT_MOVIMIENTOS cargado correctamente. Registros insertados: 3837
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Data Warehouse actualizado correctamente.
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Data Warehouse actualizado correctamente.
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: Cargando DataFrames del Data Warehouse...
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:38:36 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo estado actual del inventario...
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Estado actual construido correctamente. Registros: 2101
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: DataFrames del Data Warehouse cargados correctamente.
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Calculando los 10 KPIs...
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo tabla de repuestos representativos ABC...
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Tabla ABC construida correctamente. Registros: 25
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $1,285,017,614.09
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $1,285,017,614.09
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 3 - Alertas de Stock.
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 3 calculado correctamente.
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando Top 10 de menor cobertura (desde el Data Warehouse)...
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Top 10 de menor cobertura calculado. 10 productos encontrados.
+06/08/2026 07:38:37 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 5 - Costo proyectado de reposición...
+06/08/2026 07:38:38 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 5 calculado correctamente. Costo total proyectado: 229,168,695.56
+06/08/2026 07:38:38 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 6 - Indicador de obsolescencia predictivo...
+06/08/2026 07:38:38 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 6 calculado correctamente. Alta probabilidad: 178
+06/08/2026 07:38:38 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 7 - Tendencia del consumo...
+06/08/2026 07:38:39 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 7 calculado correctamente. Creciente: 17 | Decreciente: 37 | Estable: 149 | Sin datos suficientes: 1898
+06/08/2026 07:38:39 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 8 - Pronóstico de consumo mensual...
+06/08/2026 07:38:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 8 calculado correctamente. Total pronosticado próximo mes: 2,815.97 unidades. Productos sin datos suficientes: 1982
+06/08/2026 07:38:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 9 - Pronóstico de agotamiento del inventario...
+06/08/2026 07:38:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 9 calculado correctamente. Productos críticos (<= 30 días): 24
+06/08/2026 07:38:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 10 - Nivel de inventario proyectado...
+06/08/2026 07:38:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 10 calculado correctamente. Productos en riesgo de desabastecimiento: 17
+06/08/2026 07:38:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Los 10 KPIs se calcularon correctamente.
+06/08/2026 07:41:57 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Iniciando carga de Excel...
+06/08/2026 07:41:57 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando proceso ETL.
+06/08/2026 07:41:57 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Leyendo archivo Excel...
+06/08/2026 07:42:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Archivo leído correctamente.
+06/08/2026 07:42:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Registros filtrados correctamente. Filas: 4934 | Columnas: 30
+06/08/2026 07:42:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Conversión de tipos de datos completada.
+06/08/2026 07:42:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Unidades normalizadas correctamente.
+06/08/2026 07:42:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Maestro de repuestos: 2101 registros.
+06/08/2026 07:42:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Movimientos de inventario: 4934 registros.
+06/08/2026 07:42:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Proceso ETL finalizado correctamente.
+06/08/2026 07:42:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron: 2101 elementos
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron : 4908 elementos 
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando STOCK_MINIMO a partir del consumo histórico...
+06/08/2026 07:42:08 | NIVEL: WARNING | ORIGEN: inventarioAAp | MENSAJE: 1705 productos no tienen suficiente historial para calcular STOCK_MINIMO y se les asignará el valor por defecto (1).
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: STOCK_MINIMO actualizado para 2101 productos (396 calculados, 1705 con valor por defecto).
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando actualización de la clasificación ABC...
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC actualizada correctamente en MAESTRO_REPUESTOS.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Carga de Excel completada correctamente.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Actualizando Data Warehouse...
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Vaciando tablas del Data Warehouse...
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Reiniciando AUTOINCREMENT de FACT_MOVIMIENTOS...
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Autoincrement reiniciado correctamente
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_PRODUCTO...
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: elementos cargados correctamente en DIM_PRODUCTOregistros insertados: 2101
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_TIEMPO
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: fecha cargada correctamente n DIM_TIEMPO
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: construyendo FACT_MOVIMIENTOS....
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: FACT_MOVIMIENTOS cargado correctamente. Registros insertados: 3837
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Data Warehouse actualizado correctamente.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Data Warehouse actualizado correctamente.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: Cargando DataFrames del Data Warehouse...
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo estado actual del inventario...
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Estado actual construido correctamente. Registros: 2101
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: DataFrames del Data Warehouse cargados correctamente.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Calculando los 10 KPIs...
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo tabla de repuestos representativos ABC...
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Tabla ABC construida correctamente. Registros: 25
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $1,285,017,614.09
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $1,285,017,614.09
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 3 - Alertas de Stock.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 3 calculado correctamente.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando Top 10 de menor cobertura (desde el Data Warehouse)...
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Top 10 de menor cobertura calculado. 10 productos encontrados.
+06/08/2026 07:42:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 5 - Costo proyectado de reposición...
+06/08/2026 07:42:10 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 5 calculado correctamente. Costo total proyectado: 229,168,695.56
+06/08/2026 07:42:10 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 6 - Indicador de obsolescencia predictivo...
+06/08/2026 07:42:10 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 6 calculado correctamente. Alta probabilidad: 178
+06/08/2026 07:42:10 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 7 - Tendencia del consumo...
+06/08/2026 07:42:11 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 7 calculado correctamente. Creciente: 17 | Decreciente: 37 | Estable: 149 | Sin datos suficientes: 1898
+06/08/2026 07:42:11 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 8 - Pronóstico de consumo mensual...
+06/08/2026 07:42:12 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 8 calculado correctamente. Total pronosticado próximo mes: 2,815.97 unidades. Productos sin datos suficientes: 1982
+06/08/2026 07:42:12 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 9 - Pronóstico de agotamiento del inventario...
+06/08/2026 07:42:13 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 9 calculado correctamente. Productos críticos (<= 30 días): 24
+06/08/2026 07:42:13 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 10 - Nivel de inventario proyectado...
+06/08/2026 07:42:13 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 10 calculado correctamente. Productos en riesgo de desabastecimiento: 17
+06/08/2026 07:42:13 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Los 10 KPIs se calcularon correctamente.
+06/08/2026 07:49:18 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Iniciando carga de Excel...
+06/08/2026 07:49:18 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando proceso ETL.
+06/08/2026 07:49:18 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Leyendo archivo Excel...
+06/08/2026 07:49:27 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Archivo leído correctamente.
+06/08/2026 07:49:27 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Registros filtrados correctamente. Filas: 1199 | Columnas: 30
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Conversión de tipos de datos completada.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Unidades normalizadas correctamente.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Maestro de repuestos: 377 registros.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Movimientos de inventario: 1199 registros.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Proceso ETL finalizado correctamente.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron: 377 elementos
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron : 1199 elementos 
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando STOCK_MINIMO a partir del consumo histórico...
+06/08/2026 07:49:28 | NIVEL: WARNING | ORIGEN: inventarioAAp | MENSAJE: 196 productos no tienen suficiente historial para calcular STOCK_MINIMO y se les asignará el valor por defecto (1).
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: STOCK_MINIMO actualizado para 377 productos (181 calculados, 196 con valor por defecto).
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando actualización de la clasificación ABC...
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC actualizada correctamente en MAESTRO_REPUESTOS.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Carga de Excel completada correctamente.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Actualizando Data Warehouse...
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Vaciando tablas del Data Warehouse...
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Reiniciando AUTOINCREMENT de FACT_MOVIMIENTOS...
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Autoincrement reiniciado correctamente
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_PRODUCTO...
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: elementos cargados correctamente en DIM_PRODUCTOregistros insertados: 377
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_TIEMPO
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: fecha cargada correctamente n DIM_TIEMPO
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: construyendo FACT_MOVIMIENTOS....
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: FACT_MOVIMIENTOS cargado correctamente. Registros insertados: 1050
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Data Warehouse actualizado correctamente.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Data Warehouse actualizado correctamente.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: Cargando DataFrames del Data Warehouse...
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo estado actual del inventario...
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Estado actual construido correctamente. Registros: 377
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: DataFrames del Data Warehouse cargados correctamente.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Calculando los 10 KPIs...
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo tabla de repuestos representativos ABC...
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Tabla ABC construida correctamente. Registros: 30
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $552,917,396.79
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $552,917,396.79
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 3 - Alertas de Stock.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 3 calculado correctamente.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando Top 10 de menor cobertura (desde el Data Warehouse)...
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Top 10 de menor cobertura calculado. 10 productos encontrados.
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 5 - Costo proyectado de reposición...
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 5 calculado correctamente. Costo total proyectado: 612,394,966.18
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 6 - Indicador de obsolescencia predictivo...
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 6 calculado correctamente. Alta probabilidad: 31
+06/08/2026 07:49:28 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 7 - Tendencia del consumo...
+06/08/2026 07:49:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 7 calculado correctamente. Creciente: 15 | Decreciente: 22 | Estable: 38 | Sin datos suficientes: 302
+06/08/2026 07:49:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 8 - Pronóstico de consumo mensual...
+06/08/2026 07:49:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 8 calculado correctamente. Total pronosticado próximo mes: 2,092.47 unidades. Productos sin datos suficientes: 292
+06/08/2026 07:49:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 9 - Pronóstico de agotamiento del inventario...
+06/08/2026 07:49:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 9 calculado correctamente. Productos críticos (<= 30 días): 19
+06/08/2026 07:49:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 10 - Nivel de inventario proyectado...
+06/08/2026 07:49:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 10 calculado correctamente. Productos en riesgo de desabastecimiento: 14
+06/08/2026 07:49:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Los 10 KPIs se calcularon correctamente.
+06/08/2026 07:53:56 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Iniciando carga de Excel...
+06/08/2026 07:53:56 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando proceso ETL.
+06/08/2026 07:53:56 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Leyendo archivo Excel...
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Archivo leído correctamente.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Registros filtrados correctamente. Filas: 1199 | Columnas: 30
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Conversión de tipos de datos completada.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Unidades normalizadas correctamente.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Maestro de repuestos: 377 registros.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Movimientos de inventario: 1199 registros.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Proceso ETL finalizado correctamente.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron: 377 elementos
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron : 1199 elementos 
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando STOCK_MINIMO a partir del consumo histórico...
+06/08/2026 07:54:06 | NIVEL: WARNING | ORIGEN: inventarioAAp | MENSAJE: 196 productos no tienen suficiente historial para calcular STOCK_MINIMO y se les asignará el valor por defecto (1).
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: STOCK_MINIMO actualizado para 377 productos (181 calculados, 196 con valor por defecto).
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando actualización de la clasificación ABC...
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC actualizada correctamente en MAESTRO_REPUESTOS.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Carga de Excel completada correctamente.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Actualizando Data Warehouse...
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Vaciando tablas del Data Warehouse...
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Reiniciando AUTOINCREMENT de FACT_MOVIMIENTOS...
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Autoincrement reiniciado correctamente
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_PRODUCTO...
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: elementos cargados correctamente en DIM_PRODUCTOregistros insertados: 377
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_TIEMPO
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: fecha cargada correctamente n DIM_TIEMPO
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: construyendo FACT_MOVIMIENTOS....
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: FACT_MOVIMIENTOS cargado correctamente. Registros insertados: 1050
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Data Warehouse actualizado correctamente.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Data Warehouse actualizado correctamente.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: Cargando DataFrames del Data Warehouse...
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo estado actual del inventario...
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Estado actual construido correctamente. Registros: 377
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: DataFrames del Data Warehouse cargados correctamente.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Calculando los 10 KPIs...
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo tabla de repuestos representativos ABC...
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Tabla ABC construida correctamente. Registros: 30
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $552,917,396.79
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $552,917,396.79
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 3 - Alertas de Stock.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 3 calculado correctamente.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando Top 10 de menor cobertura (desde el Data Warehouse)...
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Top 10 de menor cobertura calculado. 10 productos encontrados.
+06/08/2026 07:54:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 5 - Costo proyectado de reposición...
+06/08/2026 07:54:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 5 calculado correctamente. Costo total proyectado: 612,394,966.18
+06/08/2026 07:54:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 6 - Indicador de obsolescencia predictivo...
+06/08/2026 07:54:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 6 calculado correctamente. Alta probabilidad: 31
+06/08/2026 07:54:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 7 - Tendencia del consumo...
+06/08/2026 07:54:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 7 calculado correctamente. Creciente: 15 | Decreciente: 22 | Estable: 38 | Sin datos suficientes: 302
+06/08/2026 07:54:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 8 - Pronóstico de consumo mensual...
+06/08/2026 07:54:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 8 calculado correctamente. Total pronosticado próximo mes: 2,092.47 unidades. Productos sin datos suficientes: 292
+06/08/2026 07:54:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 9 - Pronóstico de agotamiento del inventario...
+06/08/2026 07:54:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 9 calculado correctamente. Productos críticos (<= 30 días): 19
+06/08/2026 07:54:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 10 - Nivel de inventario proyectado...
+06/08/2026 07:54:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 10 calculado correctamente. Productos en riesgo de desabastecimiento: 14
+06/08/2026 07:54:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Los 10 KPIs se calcularon correctamente.
+06/08/2026 07:55:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Iniciando carga de Excel...
+06/08/2026 07:55:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando proceso ETL.
+06/08/2026 07:55:29 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Leyendo archivo Excel...
+06/08/2026 07:55:39 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Archivo leído correctamente.
+06/08/2026 07:55:39 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Registros filtrados correctamente. Filas: 1199 | Columnas: 30
+06/08/2026 07:55:39 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Conversión de tipos de datos completada.
+06/08/2026 07:55:39 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Unidades normalizadas correctamente.
+06/08/2026 07:55:39 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Maestro de repuestos: 377 registros.
+06/08/2026 07:55:39 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Movimientos de inventario: 1199 registros.
+06/08/2026 07:55:39 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Proceso ETL finalizado correctamente.
+06/08/2026 07:55:39 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron: 377 elementos
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron : 1199 elementos 
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando STOCK_MINIMO a partir del consumo histórico...
+06/08/2026 07:55:40 | NIVEL: WARNING | ORIGEN: inventarioAAp | MENSAJE: 196 productos no tienen suficiente historial para calcular STOCK_MINIMO y se les asignará el valor por defecto (1).
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: STOCK_MINIMO actualizado para 377 productos (181 calculados, 196 con valor por defecto).
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando actualización de la clasificación ABC...
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC actualizada correctamente en MAESTRO_REPUESTOS.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Carga de Excel completada correctamente.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Actualizando Data Warehouse...
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Vaciando tablas del Data Warehouse...
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Reiniciando AUTOINCREMENT de FACT_MOVIMIENTOS...
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Autoincrement reiniciado correctamente
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_PRODUCTO...
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: elementos cargados correctamente en DIM_PRODUCTOregistros insertados: 377
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_TIEMPO
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: fecha cargada correctamente n DIM_TIEMPO
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: construyendo FACT_MOVIMIENTOS....
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: FACT_MOVIMIENTOS cargado correctamente. Registros insertados: 1050
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Data Warehouse actualizado correctamente.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Data Warehouse actualizado correctamente.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: Cargando DataFrames del Data Warehouse...
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo estado actual del inventario...
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Estado actual construido correctamente. Registros: 377
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: DataFrames del Data Warehouse cargados correctamente.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Calculando los 10 KPIs...
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo tabla de repuestos representativos ABC...
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Tabla ABC construida correctamente. Registros: 53
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $552,917,396.79
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $552,917,396.79
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 3 - Alertas de Stock.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 3 calculado correctamente.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando Top 10 de menor cobertura (desde el Data Warehouse)...
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Top 10 de menor cobertura calculado. 10 productos encontrados.
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 5 - Costo proyectado de reposición...
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 5 calculado correctamente. Costo total proyectado: 612,394,966.18
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 6 - Indicador de obsolescencia predictivo...
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 6 calculado correctamente. Alta probabilidad: 31
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 7 - Tendencia del consumo...
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 7 calculado correctamente. Creciente: 15 | Decreciente: 22 | Estable: 38 | Sin datos suficientes: 302
+06/08/2026 07:55:40 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 8 - Pronóstico de consumo mensual...
+06/08/2026 07:55:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 8 calculado correctamente. Total pronosticado próximo mes: 2,092.47 unidades. Productos sin datos suficientes: 292
+06/08/2026 07:55:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 9 - Pronóstico de agotamiento del inventario...
+06/08/2026 07:55:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 9 calculado correctamente. Productos críticos (<= 30 días): 19
+06/08/2026 07:55:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 10 - Nivel de inventario proyectado...
+06/08/2026 07:55:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 10 calculado correctamente. Productos en riesgo de desabastecimiento: 14
+06/08/2026 07:55:41 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Los 10 KPIs se calcularon correctamente.
+06/08/2026 07:57:35 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Iniciando carga de Excel...
+06/08/2026 07:57:35 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando proceso ETL.
+06/08/2026 07:57:35 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Leyendo archivo Excel...
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Archivo leído correctamente.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Registros filtrados correctamente. Filas: 1199 | Columnas: 30
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Conversión de tipos de datos completada.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Unidades normalizadas correctamente.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Maestro de repuestos: 377 registros.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Movimientos de inventario: 1199 registros.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Proceso ETL finalizado correctamente.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron: 377 elementos
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron : 1199 elementos 
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando STOCK_MINIMO a partir del consumo histórico...
+06/08/2026 07:57:45 | NIVEL: WARNING | ORIGEN: inventarioAAp | MENSAJE: 196 productos no tienen suficiente historial para calcular STOCK_MINIMO y se les asignará el valor por defecto (1).
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: STOCK_MINIMO actualizado para 377 productos (181 calculados, 196 con valor por defecto).
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando actualización de la clasificación ABC...
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC actualizada correctamente en MAESTRO_REPUESTOS.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Carga de Excel completada correctamente.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Actualizando Data Warehouse...
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Vaciando tablas del Data Warehouse...
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Reiniciando AUTOINCREMENT de FACT_MOVIMIENTOS...
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Autoincrement reiniciado correctamente
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_PRODUCTO...
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: elementos cargados correctamente en DIM_PRODUCTOregistros insertados: 377
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_TIEMPO
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: fecha cargada correctamente n DIM_TIEMPO
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: construyendo FACT_MOVIMIENTOS....
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: FACT_MOVIMIENTOS cargado correctamente. Registros insertados: 1050
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Data Warehouse actualizado correctamente.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Data Warehouse actualizado correctamente.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: Cargando DataFrames del Data Warehouse...
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo estado actual del inventario...
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Estado actual construido correctamente. Registros: 377
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: DataFrames del Data Warehouse cargados correctamente.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Calculando los 10 KPIs...
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo tabla de repuestos representativos ABC...
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Tabla ABC construida correctamente. Registros: 93
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $552,917,396.79
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $552,917,396.79
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 3 - Alertas de Stock.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 3 calculado correctamente.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando Top 10 de menor cobertura (desde el Data Warehouse)...
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Top 10 de menor cobertura calculado. 10 productos encontrados.
+06/08/2026 07:57:45 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 5 - Costo proyectado de reposición...
+06/08/2026 07:57:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 5 calculado correctamente. Costo total proyectado: 612,394,966.18
+06/08/2026 07:57:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 6 - Indicador de obsolescencia predictivo...
+06/08/2026 07:57:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 6 calculado correctamente. Alta probabilidad: 31
+06/08/2026 07:57:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 7 - Tendencia del consumo...
+06/08/2026 07:57:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 7 calculado correctamente. Creciente: 15 | Decreciente: 22 | Estable: 38 | Sin datos suficientes: 302
+06/08/2026 07:57:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 8 - Pronóstico de consumo mensual...
+06/08/2026 07:57:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 8 calculado correctamente. Total pronosticado próximo mes: 2,092.47 unidades. Productos sin datos suficientes: 292
+06/08/2026 07:57:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 9 - Pronóstico de agotamiento del inventario...
+06/08/2026 07:57:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 9 calculado correctamente. Productos críticos (<= 30 días): 19
+06/08/2026 07:57:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 10 - Nivel de inventario proyectado...
+06/08/2026 07:57:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 10 calculado correctamente. Productos en riesgo de desabastecimiento: 14
+06/08/2026 07:57:46 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Los 10 KPIs se calcularon correctamente.
+06/08/2026 08:00:57 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Iniciando carga de Excel...
+06/08/2026 08:00:57 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando proceso ETL.
+06/08/2026 08:00:57 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Leyendo archivo Excel...
+06/08/2026 08:01:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Archivo leído correctamente.
+06/08/2026 08:01:06 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Registros filtrados correctamente. Filas: 1199 | Columnas: 30
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Conversión de tipos de datos completada.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Unidades normalizadas correctamente.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Maestro de repuestos: 377 registros.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Movimientos de inventario: 1199 registros.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Proceso ETL finalizado correctamente.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron: 377 elementos
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron : 1199 elementos 
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando STOCK_MINIMO a partir del consumo histórico...
+06/08/2026 08:01:07 | NIVEL: WARNING | ORIGEN: inventarioAAp | MENSAJE: 196 productos no tienen suficiente historial para calcular STOCK_MINIMO y se les asignará el valor por defecto (1).
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: STOCK_MINIMO actualizado para 377 productos (181 calculados, 196 con valor por defecto).
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando actualización de la clasificación ABC...
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC actualizada correctamente en MAESTRO_REPUESTOS.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Carga de Excel completada correctamente.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Actualizando Data Warehouse...
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Vaciando tablas del Data Warehouse...
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Reiniciando AUTOINCREMENT de FACT_MOVIMIENTOS...
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Autoincrement reiniciado correctamente
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_PRODUCTO...
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: elementos cargados correctamente en DIM_PRODUCTOregistros insertados: 377
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_TIEMPO
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: fecha cargada correctamente n DIM_TIEMPO
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: construyendo FACT_MOVIMIENTOS....
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: FACT_MOVIMIENTOS cargado correctamente. Registros insertados: 1050
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Data Warehouse actualizado correctamente.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Data Warehouse actualizado correctamente.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: Cargando DataFrames del Data Warehouse...
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo estado actual del inventario...
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Estado actual construido correctamente. Registros: 377
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: DataFrames del Data Warehouse cargados correctamente.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Calculando los 10 KPIs...
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo tabla de repuestos representativos ABC...
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Tabla ABC construida correctamente. Registros: 133
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $552,917,396.79
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $552,917,396.79
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 3 - Alertas de Stock.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 3 calculado correctamente.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando Top 10 de menor cobertura (desde el Data Warehouse)...
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Top 10 de menor cobertura calculado. 10 productos encontrados.
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 5 - Costo proyectado de reposición...
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 5 calculado correctamente. Costo total proyectado: 612,394,966.18
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 6 - Indicador de obsolescencia predictivo...
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 6 calculado correctamente. Alta probabilidad: 31
+06/08/2026 08:01:07 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 7 - Tendencia del consumo...
+06/08/2026 08:01:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 7 calculado correctamente. Creciente: 15 | Decreciente: 22 | Estable: 38 | Sin datos suficientes: 302
+06/08/2026 08:01:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 8 - Pronóstico de consumo mensual...
+06/08/2026 08:01:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 8 calculado correctamente. Total pronosticado próximo mes: 2,092.47 unidades. Productos sin datos suficientes: 292
+06/08/2026 08:01:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 9 - Pronóstico de agotamiento del inventario...
+06/08/2026 08:01:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 9 calculado correctamente. Productos críticos (<= 30 días): 19
+06/08/2026 08:01:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 10 - Nivel de inventario proyectado...
+06/08/2026 08:01:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 10 calculado correctamente. Productos en riesgo de desabastecimiento: 14
+06/08/2026 08:01:08 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Los 10 KPIs se calcularon correctamente.
+06/08/2026 09:06:10 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Iniciando carga de Excel...
+06/08/2026 09:06:10 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando proceso ETL.
+06/08/2026 09:06:10 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Leyendo archivo Excel...
+06/08/2026 09:06:19 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Archivo leído correctamente.
+06/08/2026 09:06:19 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Registros filtrados correctamente. Filas: 1199 | Columnas: 30
+06/08/2026 09:06:19 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Conversión de tipos de datos completada.
+06/08/2026 09:06:19 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Unidades normalizadas correctamente.
+06/08/2026 09:06:19 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Maestro de repuestos: 377 registros.
+06/08/2026 09:06:19 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Movimientos de inventario: 1199 registros.
+06/08/2026 09:06:19 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Proceso ETL finalizado correctamente.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron: 377 elementos
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se insertaron : 1199 elementos 
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando STOCK_MINIMO a partir del consumo histórico...
+06/08/2026 09:06:20 | NIVEL: WARNING | ORIGEN: inventarioAAp | MENSAJE: 196 productos no tienen suficiente historial para calcular STOCK_MINIMO y se les asignará el valor por defecto (1).
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: STOCK_MINIMO actualizado para 377 productos (181 calculados, 196 con valor por defecto).
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando actualización de la clasificación ABC...
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Iniciando cálculo de la clasificación ABC...
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC calculada correctamente.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Clasificación ABC actualizada correctamente en MAESTRO_REPUESTOS.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 1: Carga de Excel completada correctamente.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Actualizando Data Warehouse...
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Vaciando tablas del Data Warehouse...
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Reiniciando AUTOINCREMENT de FACT_MOVIMIENTOS...
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Autoincrement reiniciado correctamente
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_PRODUCTO...
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: elementos cargados correctamente en DIM_PRODUCTOregistros insertados: 377
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo DIM_TIEMPO
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: fecha cargada correctamente n DIM_TIEMPO
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: construyendo FACT_MOVIMIENTOS....
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: FACT_MOVIMIENTOS cargado correctamente. Registros insertados: 1050
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Data Warehouse actualizado correctamente.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 2: Data Warehouse actualizado correctamente.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: Cargando DataFrames del Data Warehouse...
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo la conexion correcta a la DB 
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: se realizo correctamente la comunicacion con la base de datos
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo estado actual del inventario...
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Estado actual construido correctamente. Registros: 377
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 3: DataFrames del Data Warehouse cargados correctamente.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: cerrada correctamentela conexion a la DB
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Calculando los 10 KPIs...
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Construyendo tabla de repuestos representativos ABC...
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Tabla ABC construida correctamente. Registros: 53
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $552,917,396.79
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 1 - Clasificación ABC.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 1 calculado correctamente.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 2 - Valorización total del inventario.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Capital inmovilizado: $552,917,396.79
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 3 - Alertas de Stock.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 3 calculado correctamente.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando Top 10 de menor cobertura (desde el Data Warehouse)...
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Top 10 de menor cobertura calculado. 10 productos encontrados.
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 5 - Costo proyectado de reposición...
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 5 calculado correctamente. Costo total proyectado: 612,394,966.18
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 6 - Indicador de obsolescencia predictivo...
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 6 calculado correctamente. Alta probabilidad: 31
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 7 - Tendencia del consumo...
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 7 calculado correctamente. Creciente: 15 | Decreciente: 22 | Estable: 38 | Sin datos suficientes: 302
+06/08/2026 09:06:20 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 8 - Pronóstico de consumo mensual...
+06/08/2026 09:06:21 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 8 calculado correctamente. Total pronosticado próximo mes: 2,092.47 unidades. Productos sin datos suficientes: 292
+06/08/2026 09:06:21 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 9 - Pronóstico de agotamiento del inventario...
+06/08/2026 09:06:21 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 9 calculado correctamente. Productos críticos (<= 30 días): 19
+06/08/2026 09:06:21 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: Calculando KPI 10 - Nivel de inventario proyectado...
+06/08/2026 09:06:21 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: KPI 10 calculado correctamente. Productos en riesgo de desabastecimiento: 14
+06/08/2026 09:06:21 | NIVEL: INFO | ORIGEN: inventarioAAp | MENSAJE: PASO 4: Los 10 KPIs se calcularon correctamente.
